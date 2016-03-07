@@ -9,7 +9,9 @@
     "request": "^2.69.0",
     "restify": "^4.0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "karma": "^0.13.21"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
