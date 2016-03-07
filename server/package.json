@@ -4,7 +4,9 @@
   "description": "A server backend that can handle the different services required for the appraisal application on the iPhone end",
   "main": "server.js",
   "dependencies": {
+    "cheerio": "^0.20.0",
     "lodash": "^4.6.1",
+    "request": "^2.69.0",
     "restify": "^4.0.4"
   },
   "devDependencies": {},
