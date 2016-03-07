@@ -1,0 +1,29 @@
+{
+  "name": "appraisal-server",
+  "version": "1.0.0",
+  "description": "A server backend that can handle the different services required for the appraisal application on the iPhone end",
+  "main": "server.js",
+  "dependencies": {
+    "lodash": "^4.6.1",
+    "restify": "^4.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KairuRengu/iPhone-Application/"
+  },
+  "keywords": [
+    "server",
+    "appraisal",
+    "new",
+    "iphone",
+    "wlu",
+    "class"
+  ],
+  "author": "Vaughan Hilts, Kyle Leng",
+  "license": "UNLICENSED"
+}
