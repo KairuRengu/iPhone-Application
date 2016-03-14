@@ -3,8 +3,9 @@
  * not be neccessary yet.
  */
 module.exports = Object.freeze({
-    Book,
-    Movie,
-    Music,
-    Electronics
+    "Book": 1,
+    "Movie": 2,
+    "Music": 3,
+    "Electronics": 4,
+    "Game": 5
 })
