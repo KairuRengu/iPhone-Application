@@ -1,13 +1,8 @@
 TODO:
 
-  * Create some kind of Data Access Layer so that information can be reasoned
-  and fetched about for a particular request.
     * We should at minimum cache ThePriceGeek results to reduce serving times.
     We may be able to cache the reverse-image lookups somehow, but that's
     not decided yet.
-
-    * Can we create a hash of the images we upload so when we're testing
-    the hits aren't crazy? Otherwise, Google will not be impressed with us.
 
   * We need `routes` to be able to test with something like POSTman and of course,
   to begin wiring  up to the actual iPhone application.
@@ -20,3 +15,11 @@ TODO:
     on a per item basis
 
   * eBay API to actually post ads on the behalf of the user
+
+DONE:
+
+    * Can we create a hash of the images we upload so when we're testing
+    the hits aren't crazy? Otherwise, Google will not be impressed with us.
+
+    * Create some kind of Data Access Layer so that information can be reasoned
+    and fetched about for a particular request.
