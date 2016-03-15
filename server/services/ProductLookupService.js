@@ -1,7 +1,10 @@
 'use strict'
 
+var Product = require('../model/Product')
+
 /**
- * Provides facilities for looking up a product
+ * Provides facilities for looking up a product and the various tags assosciated
+ * with it.
  */
 class ProductService {
   constructor(lookupStrategy) {
@@ -9,15 +12,16 @@ class ProductService {
   }
 
   getProductByImageUrl(imageUrl, callback) {
-    //TODO: Get the image by the product URL
+    // TODO: Fill in an actual product here for the user to make use of
+    callback(null)
   }
 
   getProductPrice(product) {
-    // TODO: Get the product pricing information
+
   }
 
   getProductDetails() {
-      // TODO: Get the product details
+
   }
 
 }
