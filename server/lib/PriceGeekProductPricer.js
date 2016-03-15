@@ -3,7 +3,9 @@ var assert = require('chai').assert;
 var ProductPricer = require('./ProductPricer')
 var request = require('request')
 var cheerio = require('cheerio')
+var util = require('util')
 var ProductPriceSnapshot = require('../model/ProductPriceSnapshot')
+var qs = require('querystring');
 
 /**
   Implements a ProductPricer that pulls from "The Price Geek" allowing for
@@ -52,8 +54,8 @@ class PriceGeekProductPricer extends ProductPricer {
        */
       _getHTMLForProduct(product, callback) {
         var productName = product.name
-        productName = this._getExtraTagsRequiredForProduct(product)
-
+        productName = this._cleanQueryName(productName)
+        
         if(!this.html) {
           var url = this._getUrlFromName(productName)
           request(url, function(error, response, body) {
@@ -69,7 +71,6 @@ class PriceGeekProductPricer extends ProductPricer {
       _getProductPricingFromHTML(html) {
         var $ = cheerio.load(html);
         var median = "";
-
         try {
           median = $(".median").text().replace("$", "")
         }
@@ -110,7 +111,14 @@ class PriceGeekProductPricer extends ProductPricer {
        * @return {string}      The URL of the product
        */
       _getUrlFromName(name) {
-        return util.format("http://www.thepricegeek.com/results/%s?country=ca", name);
+        return util.format("http://www.thepricegeek.com/results/%s?country=ca", encodeURIComponent(name));
+      }
+
+      _cleanQueryName(name) {
+        // This blacklist can probably be moved to a configuration file somewhere
+        var BLACKLIST = ['ps4', 'ps2', 'ps1', 'xbox 360', 'xboxone', 'n64']
+        BLACKLIST.forEach((item) => {name = name.replace(item, '')})
+        return name
       }
 
 }
