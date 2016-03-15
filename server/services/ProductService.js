@@ -3,6 +3,7 @@
 var MemoryCache = require('../dal/MemoryCache')
 var ImageHasher = require('../lib/ImageHasher')
 var Product = require('../model/Product')
+var ImageUploader = require('../lib/ImageUploader')
 
 /**
  * Provides facilities for looking up a product
@@ -25,6 +26,8 @@ class ProductService {
       } else {
         this._fetchProductFromImage(filename, (product) => {
           callback(product)
+          // Add to the cache, too w hile we're at it
+          this._cache.addToCache(hash, product)
         })
       }
     })

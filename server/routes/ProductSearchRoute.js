@@ -3,7 +3,8 @@
 var multer = require('multer')
 var os = require('os')
 var ProductService = require('../services/ProductService')
-var ImageUploader = require('../lib/ImageUploader')
+var ProductPriceService = require('../services/ProductPriceService')
+var PriceGeekProductPricer = require('../lib/PriceGeekProductPricer')
 var ImageHasher = require('../lib/ImageHasher')
 var GoogleLookupStrategy = require('../lib/GoogleLookupStrategy')
 
@@ -23,28 +24,48 @@ class ProductSearchRoute {
     this.server.post('/search', multer({ dest: os.tmpdir()}).single('upl'), (request, resource, next) => {
         this._onPOSTImageSearch(request, resource, next)
     })
+
+    this.server.post('/search/price', (request, resource, next) => {
+      this._onPriceRequest(request, resource, next)
+    })
   }
 
   _onPOSTImageSearch(request, resource, next) {
-    var imageUploaded = request.files.image
-    var imagePath = imageUploaded.path
+    var imageUploaded, imagePath
+    try {
+       imageUploaded = request.files.image
+       imagePath = imageUploaded.path
+    } catch(e) {
+      console.log('/search: image was not attached, so aborting the request')
+      resource.status(400)
+      resource.send({error: 'No image was attached'})
+      return
+    }
 
     this.productService.getProductByImageFilename(imagePath, (product) => {
       if(product) {
-        req.send(product)
+        resource.send(product)
       }
       else {
         // If the product came back null, chances are we could not find
         // enough information to identify it as a product, so we do not bother
-        req.send(404)
+        resource.send(404)
       }
     })
   }
 
-  _fetchProductFromCache() {
-
+  _onPriceRequest(request, resource, next) {
+    var product = request.body
+    var service = new ProductPriceService(new PriceGeekProductPricer())
+    service.getPriceSnapshotForProduct(product, (pricing) => {
+      if(pricing) {
+        resource.status(200)
+        resource.send(pricing)
+      } else {
+        resource.send(404)
+      }
+    })
   }
-
 }
 
 module.exports = ProductSearchRoute
