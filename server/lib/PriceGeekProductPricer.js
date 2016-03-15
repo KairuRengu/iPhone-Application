@@ -54,7 +54,8 @@ class PriceGeekProductPricer extends ProductPricer {
        */
       _getHTMLForProduct(product, callback) {
         var productName = product.name
-
+        productName = this._cleanQueryName(productName)
+        
         if(!this.html) {
           var url = this._getUrlFromName(productName)
           request(url, function(error, response, body) {
@@ -111,6 +112,13 @@ class PriceGeekProductPricer extends ProductPricer {
        */
       _getUrlFromName(name) {
         return util.format("http://www.thepricegeek.com/results/%s?country=ca", encodeURIComponent(name));
+      }
+
+      _cleanQueryName(name) {
+        // This blacklist can probably be moved to a configuration file somewhere
+        var BLACKLIST = ['ps4', 'ps2', 'ps1', 'xbox 360', 'xboxone', 'n64']
+        BLACKLIST.forEach((item) => {name = name.replace(item, '')})
+        return name
       }
 
 }
