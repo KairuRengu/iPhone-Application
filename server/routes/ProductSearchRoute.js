@@ -1,4 +1,6 @@
-var mutler = require('mutler')
+'use strict'
+
+var mutler = require('multer')
 var ProductService = require('../services/ProductService')
 var ImageUploader = require('../lib/ImageUploader')
 var ImageHasher = require('../lib/ImageHasher')
@@ -16,7 +18,7 @@ class ProductSearchRoute {
 
   setup() {
     // Handles the post image route
-    this.post('/search', multer({ dest: os.tmpdir()}).single('upl'), (request, resource, next) {
+    this.post('/search', multer({ dest: os.tmpdir()}).single('upl'), (request, resource, next) => {
         this._onPOSTImageSearch(request, resource, next)
     })
   }
@@ -25,18 +27,15 @@ class ProductSearchRoute {
     var imageUploaded = request.files.image
     var imagePath = imageUploaded.path
 
-    var uploader = new ImageUploader('')
-    uploader.uploadImageFromDisk(imagePath, (url) => {
-        this.productService.getProductByImageUrl(url, (product) => {
-          if(product) {
-            req.send(product)
-          }
-          else {
-            // If the product came back null, chances are we could not find
-            // enough information to identify it as a product, so we do not bother
-            req.send(404)
-          }
-        })
+    this.productService.getProductByImageFilename(imagePath, (product) => {
+      if(product) {
+        req.send(product)
+      }
+      else {
+        // If the product came back null, chances are we could not find
+        // enough information to identify it as a product, so we do not bother
+        req.send(404)
+      }
     })
   }
 
