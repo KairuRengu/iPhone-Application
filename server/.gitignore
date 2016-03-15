@@ -1,3 +1,6 @@
+# OSX Garbage
+*.DS_Store
+
 # Logs
 logs
 *.log
