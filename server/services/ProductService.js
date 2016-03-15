@@ -9,7 +9,7 @@ var Product = require('../model/Product')
  */
 class ProductService {
   constructor(lookupStrategy) {
-    this.strategy = strategy
+    this.strategy = lookupStrategy
 
     // HACK: Who is responsible for the caching mechanism? I don't know for sure
     // but for now this is fine

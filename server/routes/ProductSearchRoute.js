@@ -1,9 +1,11 @@
 'use strict'
 
-var mutler = require('multer')
+var multer = require('multer')
+var os = require('os')
 var ProductService = require('../services/ProductService')
 var ImageUploader = require('../lib/ImageUploader')
 var ImageHasher = require('../lib/ImageHasher')
+var GoogleLookupStrategy = require('../lib/GoogleLookupStrategy')
 
 /**
  * A route allowing for product details and the client to get information regarding
@@ -12,13 +14,13 @@ var ImageHasher = require('../lib/ImageHasher')
 class ProductSearchRoute {
   constructor(server) {
     this.server = server
-    this.productService = new ProductService()
+    this.productService = new ProductService(new GoogleLookupStrategy())
     this.setup()
   }
 
   setup() {
     // Handles the post image route
-    this.post('/search', multer({ dest: os.tmpdir()}).single('upl'), (request, resource, next) => {
+    this.server.post('/search', multer({ dest: os.tmpdir()}).single('upl'), (request, resource, next) => {
         this._onPOSTImageSearch(request, resource, next)
     })
   }
