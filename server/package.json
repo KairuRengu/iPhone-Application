@@ -10,6 +10,7 @@
     "lodash": "^4.6.1",
     "multer": "^1.1.0",
     "node-incandescent-client": "^1.0.0",
+    "redis": "^2.5.0-1",
     "request": "^2.69.0",
     "restify": "^4.0.4"
   },
