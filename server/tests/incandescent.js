@@ -22,7 +22,6 @@ describe('IncandescentLookupStrategy', () => {
     })
 
     it('should begin and upload if queue is non-empty', function(done) {
-      this.timeout(60000*10)
       var lookup = new IncandescentLookupStrategy()
       lookup.queueUrl('http://cdn3-www.playstationlifestyle.net/assets/uploads/2015/04/disgaea-5-ps4-box-art.jpg', (matches) => {
         // Assert the sanity of the data
