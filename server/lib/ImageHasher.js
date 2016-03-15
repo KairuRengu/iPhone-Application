@@ -1,4 +1,7 @@
+'use strict'
+
 var fs = require('fs')
+var crypto = require('crypto')
 
 /**
  * Hashes an image into an identifiable string and provides various utitlies
@@ -21,7 +24,7 @@ class ImageHasher {
 
   // Hash the string
   _hashString(s)  {
-    crypto.createHash(this.hashType).update(s, 'utf8').digest()
+    return crypto.createHash(this.hashType).update(s, 'utf8').digest('hex')
   }
 }
 
