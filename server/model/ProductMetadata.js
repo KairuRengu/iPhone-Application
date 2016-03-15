@@ -30,6 +30,11 @@ class ProductMetadata {
     var attachment = new MetadataAttachment(resourceURL)
     this.attachments.push(attachment)
   }
+  
+  isComplete() {
+    return !_.isUndefined(this.title) &&  !_.isUndefined(this.description) && !_.isUndefined(this.productType)
+  }
+
 }
 
 module.exports = ProductMetadata

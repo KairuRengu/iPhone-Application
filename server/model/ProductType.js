@@ -6,6 +6,5 @@ module.exports = Object.freeze({
     "Book": 1,
     "Movie": 2,
     "Music": 3,
-    "Electronics": 4,
-    "Game": 5
+    "Game": 4
 })
