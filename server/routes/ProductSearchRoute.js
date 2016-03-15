@@ -16,6 +16,7 @@ class ProductSearchRoute {
   constructor(server) {
     this.server = server
     this.productService = new ProductService(new GoogleLookupStrategy())
+    this._priceService = new ProductPriceService(new PriceGeekProductPricer())
     this.setup()
   }
 
@@ -56,7 +57,7 @@ class ProductSearchRoute {
 
   _onPriceRequest(request, resource, next) {
     var product = request.body
-    var service = new ProductPriceService(new PriceGeekProductPricer())
+    var service = this._priceService
     service.getPriceSnapshotForProduct(product, (pricing) => {
       if(pricing) {
         resource.status(200)
