@@ -65,7 +65,6 @@ class ProductDetailsCrawler {
 
   _inheritMetadata(prev, next) {
     _.defaultsDeep(prev, next)
-
     if(next['attachments']) {
       next.attachments.forEach((attachment) => {
         prev.attachments.push(attachment)

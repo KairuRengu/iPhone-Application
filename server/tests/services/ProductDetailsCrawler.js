@@ -84,5 +84,12 @@ describe('ProductDetailsCrawler', () => {
           done()
         })
       })
+
+      it('should not call a scanner on a link it does not support', (done) => {
+        crawler.getProductDetailsForUrls(['xxx', 'yyyy'], (data) => {
+          assert(data.title === undefined)
+          done()
+        })
+      })
     })
 })
