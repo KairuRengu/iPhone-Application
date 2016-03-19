@@ -57,6 +57,7 @@ describe('ProductDetailsCrawler', () => {
         var blankCrawler = new ProductDetailsCrawler()
           blankCrawler.getProductDetailsForUrls(['1', '2'], (data) => {
             if(!data.isComplete()) {
+              assert(data.title !=== 'You Should Never See This')
               done()
             } else {
               assert.fail('somehow got back a completed data object!?')
