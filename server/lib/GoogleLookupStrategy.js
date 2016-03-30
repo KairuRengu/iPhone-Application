@@ -40,8 +40,22 @@ class GoogleLookupStrategy {
 
     request(options, function(error, response, body) {
       var $ = cheerio.load(body);
+      var guess = $('._gUb').text()
+
+      // Grab the links
+      var $linkContainer = $('.srg').eq(1)
+      var links = []
+
+      // Push the links out
+      $linkContainer.children('.g').each(function(index, $element) {
+        $element = $($element)
+        var $link = $element.find('h3 a')
+        var url = $link.attr('href')
+        links.push(url)
+      });
+
       // The best guess is going to be in this tag...
-      callback($('._gUb').text())
+      callback(guess, links)
     })
     return true;
   }

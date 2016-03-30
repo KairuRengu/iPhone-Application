@@ -25,9 +25,10 @@ describe('GoogleLookupStrategy', () => {
       this.timeout(30000)
       var lookup = new GoogleLookupStrategy()
       lookup.queueUrl('http://cdn3-www.playstationlifestyle.net/assets/uploads/2015/04/disgaea-5-ps4-box-art.jpg')
-      var isStarted = lookup.fetchProductInformationFromQueue((guess) => {
-        // Assert the sanity of the data        
+      var isStarted = lookup.fetchProductInformationFromQueue((guess, links) => {
+        // Assert the sanity of the data
         assert(guess.trim() === 'disgaea 5 alliance of vengeance')
+        assert(links.length > 0)
         done()
       })
       assert.isTrue(isStarted)
