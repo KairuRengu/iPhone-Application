@@ -111,6 +111,60 @@ class HTTPUtility {
         
     }
     
+    static func POSTWithImage(images : [UIImage], params : [String : String], url : String, completeCallback : (NSDictionary?) -> Void)
+    {
+        // TODO: Implement the network activity indiciator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let myUrl = NSURL(string: url);
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
+        let param = [
+            "apiKey"    : "8XudkSpsMjddj0JkMMn36"
+        ]
+        
+        
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        var results = [NSData?]()
+        for image in images {
+            let imageData = UIImageJPEGRepresentation(image, 1)
+            results.append(imageData)
+        }
+        
+        request.HTTPBody = createBodyWithParametersAndMultipleImages(param, filePathKey: "image", imageDataKey: results, boundary: boundary)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            // Turn off the indiciator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            if((error) != nil) {
+                completeCallback(nil)
+                return
+            }
+            
+            // Attempt to print the back data here
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("Response is back, result is: " + (responseString as! String))
+            
+            do {
+                let json : NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! NSDictionary
+                dispatch_async(dispatch_get_main_queue(), {
+                    completeCallback(json)
+                });
+            }
+            catch {
+                completeCallback(nil)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
     // The below functions were inspired (but not copied from) http://roadfiresoftware.com/2015/10/how-to-parse-json-with-swift-2/
     // Swift has changed a lot, code does not work properly across all versions :(
     // Also, http://swiftdeveloperblog.com/image-upload-example/
@@ -138,6 +192,32 @@ class HTTPUtility {
         
         return body
     }
+    
+    private static func createBodyWithParametersAndMultipleImages(parameters: [String: String]?, filePathKey: String?, imageDataKey: [NSData?], boundary: String) -> NSData {
+        let body = NSMutableData();
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString("--\(boundary)\r\n")
+                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString("\(value)\r\n")
+            }
+        }
+        
+        var counter = 0
+        for image in imageDataKey {
+            let filename = "ad.jpg"
+            let mimetype = "image/jpg"
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)_\(counter)\"; filename=\"\(filename)\"\r\n")
+            body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+            body.appendData(image!)
+            body.appendString("\r\n")
+            body.appendString("--\(boundary)--\r\n")
+            counter++
+        }
+        return body
+    }
+    
     
     private static func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"

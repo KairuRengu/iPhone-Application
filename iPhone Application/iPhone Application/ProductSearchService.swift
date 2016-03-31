@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-class ProductSearchService {
-
-    // We don't really need to init anything right now
-    init() {
-        
-    }
-    
+class ProductSearchService {    
     /**
      Fetches product by image
     */
@@ -67,9 +61,10 @@ class ProductSearchService {
             "price": ad.getPrice().description
         ]
         
-        // TODO: Attach the photos
+        // TODO: Likely need to return a result when the server supports it for
+        // getting your ad URLs back
         
-        HTTPUtility.POSTWithParameters(serviceUrl, params: params) {
+        HTTPUtility.POSTWithImage(ad.getImages(), params: params, url: serviceUrl) {
             json in
             if(json != nil) {
                 completeCallback(true)
