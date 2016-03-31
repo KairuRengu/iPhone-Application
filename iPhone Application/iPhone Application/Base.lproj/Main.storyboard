@@ -277,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3I-cT-YMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1347" y="-205.5"/>
+            <point key="canvasLocation" x="2863" y="587"/>
         </scene>
         <!--Take a Photo-->
         <scene sceneID="dpS-UY-wXr">
@@ -380,12 +380,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wg-Qe-k5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="606"/>
+            <point key="canvasLocation" x="765" y="594"/>
         </scene>
-        <!--View Controller-->
+        <!--CreateProductAd-->
         <scene sceneID="dPZ-I4-XeA">
             <objects>
-                <viewController id="gtj-fb-AdS" customClass="ViewController" customModule="AutoLayout_UIStackView_in_UIScrollView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CreateProductAd" id="gtj-fb-AdS" customClass="ViewController" customModule="AutoLayout_UIStackView_in_UIScrollView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N20-eI-Jnh"/>
                         <viewControllerLayoutGuide type="bottom" id="CrX-r4-hqA"/>
@@ -398,7 +398,7 @@
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="i6X-X4-B8U">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="769"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="790"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lWp-d5-W1y">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="0.0"/>
@@ -426,9 +426,10 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Product Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ocH-cm-1ut">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="scaleToFill" text="Enter Product Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ocH-cm-1ut">
                                                 <rect key="frame" x="0.0" y="93" width="560" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="ziq-b3-SOR"/>
                                                 </constraints>
@@ -446,38 +447,44 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CH-r4-AOA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Daw-pF-yko">
                                                 <rect key="frame" x="0.0" y="244" width="560" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-GJ-gjN">
-                                                <rect key="frame" x="0.0" y="265" width="560" height="216"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CH-r4-AOA">
+                                                <rect key="frame" x="0.0" y="265" width="560" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-GJ-gjN">
+                                                <rect key="frame" x="0.0" y="286" width="560" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="481155949.128259">
                                                     <!--2016-03-31 22:25:49 +0000-->
                                                 </date>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koz-TO-nRh">
-                                                <rect key="frame" x="0.0" y="481" width="560" height="21"/>
+                                                <rect key="frame" x="0.0" y="502" width="560" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-q4-5cq">
-                                                <rect key="frame" x="0.0" y="502" width="560" height="216"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-q4-5cq">
+                                                <rect key="frame" x="0.0" y="523" width="560" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="481155957.043652">
                                                     <!--2016-03-31 22:25:57 +0000-->
                                                 </date>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAT-mw-GHM">
-                                                <rect key="frame" x="0.0" y="718" width="560" height="21"/>
+                                                <rect key="frame" x="0.0" y="739" width="560" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1K-LF-VgN">
-                                                <rect key="frame" x="0.0" y="739" width="560" height="30"/>
+                                                <rect key="frame" x="0.0" y="760" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -507,10 +514,13 @@
                             <constraint firstItem="gAF-2D-jJt" firstAttribute="top" secondItem="N20-eI-Jnh" secondAttribute="bottom" id="ych-sx-zWV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="j9Y-TL-q4H" kind="show" id="ycV-Ow-Q9f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAh-7X-6ig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="214"/>
+            <point key="canvasLocation" x="2189" y="594"/>
         </scene>
     </scenes>
     <resources>
