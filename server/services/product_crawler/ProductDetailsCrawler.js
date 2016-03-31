@@ -57,7 +57,6 @@ class ProductDetailsCrawler {
    * @return {[type]}     [description]
    */
   _getProductDetailFromUrl(url, callback) {
-    console.log('scanning: ' + url)
     var toAttempt = []
     this._scanners.forEach((scanner) => {
       if(scanner.canAcceptLink(url)) {
