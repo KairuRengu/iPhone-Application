@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bwS-eZ-7It">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bwS-eZ-7It">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -130,7 +131,6 @@
                                 <exclude reference="6Fi-jk-ONg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="elg-SH-Yuj"/>
                                 <exclude reference="4wT-mj-d7c"/>
                                 <exclude reference="62t-kP-g8C"/>
                                 <exclude reference="OTf-ua-RJ8"/>
@@ -138,6 +138,7 @@
                                 <exclude reference="ZqT-qw-rBa"/>
                                 <exclude reference="a09-1P-U5Z"/>
                                 <exclude reference="gFJ-a6-yWl"/>
+                                <exclude reference="elg-SH-Yuj"/>
                                 <exclude reference="97y-z1-0Eh"/>
                                 <exclude reference="WgM-hF-sV6"/>
                                 <exclude reference="caB-XN-GM8"/>
@@ -152,7 +153,6 @@
                                 <include reference="6Fi-jk-ONg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="elg-SH-Yuj"/>
                                 <include reference="4wT-mj-d7c"/>
                                 <include reference="62t-kP-g8C"/>
                                 <include reference="OTf-ua-RJ8"/>
@@ -160,6 +160,7 @@
                                 <include reference="ZqT-qw-rBa"/>
                                 <include reference="a09-1P-U5Z"/>
                                 <include reference="gFJ-a6-yWl"/>
+                                <include reference="elg-SH-Yuj"/>
                                 <include reference="97y-z1-0Eh"/>
                                 <include reference="WgM-hF-sV6"/>
                                 <include reference="caB-XN-GM8"/>
@@ -244,14 +245,14 @@
                                 <exclude reference="1cH-pI-6vn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="uxn-PZ-Kru"/>
+                                <exclude reference="9jF-RR-ayY"/>
+                                <exclude reference="dMX-Rs-48D"/>
+                                <exclude reference="mii-BH-eDe"/>
                                 <exclude reference="eWl-ey-S0j"/>
                                 <exclude reference="tXE-eU-fJh"/>
                                 <exclude reference="DuO-Is-J4s"/>
                                 <exclude reference="iWa-sI-gR4"/>
-                                <exclude reference="9jF-RR-ayY"/>
-                                <exclude reference="dMX-Rs-48D"/>
-                                <exclude reference="mii-BH-eDe"/>
-                                <exclude reference="uxn-PZ-Kru"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -262,14 +263,14 @@
                                 <include reference="1cH-pI-6vn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="uxn-PZ-Kru"/>
+                                <include reference="9jF-RR-ayY"/>
+                                <include reference="dMX-Rs-48D"/>
+                                <include reference="mii-BH-eDe"/>
                                 <include reference="eWl-ey-S0j"/>
                                 <include reference="tXE-eU-fJh"/>
                                 <include reference="DuO-Is-J4s"/>
                                 <include reference="iWa-sI-gR4"/>
-                                <include reference="9jF-RR-ayY"/>
-                                <include reference="dMX-Rs-48D"/>
-                                <include reference="mii-BH-eDe"/>
-                                <include reference="uxn-PZ-Kru"/>
                             </mask>
                         </variation>
                     </view>
@@ -281,7 +282,6 @@
         <!--Take a Photo-->
         <scene sceneID="dpS-UY-wXr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NJT-nO-41E" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Take a Photo" id="tmY-IE-DcL" customClass="UIImagePicker" customModule="iPhone_Application" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JQX-mQ-hPX"/>
@@ -291,7 +291,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-Sd-YNp">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-Sd-YNp">
                                 <rect key="frame" x="231" y="304" width="138" height="30"/>
                                 <size key="titleShadowOffset" width="4" height="0.0"/>
                                 <state key="normal" title="Photo Album" image="stack"/>
@@ -302,11 +302,11 @@
                                     <action selector="btnClicked" destination="tmY-IE-DcL" eventType="touchUpInside" id="HTe-rO-W2B"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-fh-EsD">
-                                <rect key="frame" x="231" y="353" width="139" height="61"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-fh-EsD">
+                                <rect key="frame" x="231" y="353" width="99" height="21"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cj-EE-ViG">
-                                        <rect key="frame" x="20" y="20" width="99" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Photo Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cj-EE-ViG">
+                                        <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.30454582489999998" green="0.4143401874" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.30454582489999998" green="0.4143401874" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -359,6 +359,7 @@
                         <outlet property="chooseBuuton" destination="BbV-Sd-YNp" id="4MI-Q4-sLM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NJT-nO-41E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461" y="606"/>
         </scene>
