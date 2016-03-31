@@ -53,9 +53,11 @@ class PriceGeekProductPricer extends ProductPricer {
        * Gets the HTML for a specific product, specified by the
        */
       _getHTMLForProduct(product, callback) {
-        var productName = product.name
+        // Take the title, as it's well formed... otherwise the name will do
+        // though, we lose a bit of context doing this
+        var productName = product.title || product.name
         productName = this._cleanQueryName(productName)
-        
+
         if(!this.html) {
           var url = this._getUrlFromName(productName)
           request(url, function(error, response, body) {
