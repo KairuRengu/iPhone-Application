@@ -16,9 +16,17 @@ class Product {
     this.productPricingInfo = productPriceSnapshot;
   }
 
+  /**
+   * This operation will overwrite all the data on the product. Only call it
+   * after you require a brand new product data, without any other additional
+   * context. You will *LOSE* all properties on this product instance.
+   * @param  {[type]} metadata [description]
+   * @return {[type]}          [description]
+   */
   mixInMetadata(metadata) {
     _.assign(this, metadata)
   }
+
 }
 
 module.exports = Product

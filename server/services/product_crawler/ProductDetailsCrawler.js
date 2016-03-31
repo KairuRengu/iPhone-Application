@@ -21,7 +21,11 @@ class ProductDetailsCrawler {
     // If urls is empty, return nothing
     if(urls.length === 0) {
       callback(data)
+      log.warn('Product crawler', 'Failed to find any matches!')
     }
+
+    log.info('Product crawler','Attempting to parse URLs:')
+    log.info('Product crawler', urls)
 
     var returned = 0
     urls.forEach((url) => {
@@ -30,11 +34,11 @@ class ProductDetailsCrawler {
           data = this._inheritMetadata(data, newData)
         }
         returned++
-        if(returned == urls.length + 1) {
+        if(returned === (urls.length)) {
           callback(data)
+          return
         }
       })
-
     })
   }
 
@@ -53,15 +57,26 @@ class ProductDetailsCrawler {
    * @return {[type]}     [description]
    */
   _getProductDetailFromUrl(url, callback) {
+    console.log('scanning: ' + url)
+    var toAttempt = []
     this._scanners.forEach((scanner) => {
       if(scanner.canAcceptLink(url)) {
+        toAttempt.push(scanner)
+      }
+    })
+
+    if(toAttempt.length > 0) {
+      toAttempt.forEach((scanner) => {
         scanner.scanLink(url, (newData) => {
           log.info('Product Crawler', 'Scanner [%s] processed some new data.', scanner.getFriendlyName())
           callback(newData)
         })
-      }
-    })
-    callback(null)
+      })
+    }
+    else {
+      log.info('Product Crawler', 'Scanner was not found to process %s', url)
+      callback(null)
+    }
   }
 
   _inheritMetadata(prev, next) {
