@@ -281,6 +281,7 @@
         <!--Take a Photo-->
         <scene sceneID="dpS-UY-wXr">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NJT-nO-41E" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Take a Photo" id="tmY-IE-DcL" customClass="UIImagePicker" customModule="iPhone_Application" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JQX-mQ-hPX"/>
@@ -290,42 +291,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-Sd-YNp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-Sd-YNp">
                                 <rect key="frame" x="231" y="304" width="138" height="30"/>
-                                <state key="normal" title="Add Selected Image"/>
+                                <size key="titleShadowOffset" width="4" height="0.0"/>
+                                <state key="normal" title="Photo Album" image="stack"/>
                                 <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="231" y="504" width="138" height="30"/>
+                                    <rect key="frame" x="170" y="106" width="260" height="288"/>
                                 </variation>
                                 <connections>
                                     <action selector="btnClicked" destination="tmY-IE-DcL" eventType="touchUpInside" id="HTe-rO-W2B"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WDf-rf-W6y">
-                                <rect key="frame" x="180" y="111" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="uNr-IF-Q6D"/>
-                                </constraints>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="180" y="111" width="240" height="328"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-fh-EsD">
+                                <rect key="frame" x="231" y="353" width="139" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cj-EE-ViG">
+                                        <rect key="frame" x="20" y="20" width="99" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.30454582489999998" green="0.4143401874" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.30454582489999998" green="0.4143401874" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <variation key="heightClass=regular" ambiguous="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <variation key="heightClass=regular" axis="vertical" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="251" y="373" width="99" height="21"/>
                                 </variation>
-                            </imageView>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-9o-PUC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="251" y="738" width="54" height="30"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BbV-Sd-YNp" firstAttribute="top" secondItem="WDf-rf-W6y" secondAttribute="bottom" constant="65" id="6h2-4D-SU1"/>
-                            <constraint firstItem="WDf-rf-W6y" firstAttribute="top" secondItem="JQX-mQ-hPX" secondAttribute="bottom" constant="91" id="7yq-Jq-w9s"/>
-                            <constraint firstItem="aqC-3e-2X7" firstAttribute="top" secondItem="BbV-Sd-YNp" secondAttribute="bottom" constant="217" id="AaJ-s7-gQA"/>
-                            <constraint firstItem="WDf-rf-W6y" firstAttribute="centerX" secondItem="2ox-a1-Vy7" secondAttribute="centerX" id="axo-Xg-SxF"/>
-                            <constraint firstItem="BbV-Sd-YNp" firstAttribute="centerX" secondItem="WDf-rf-W6y" secondAttribute="centerX" id="nrM-Mf-gaJ"/>
+                            <constraint firstItem="8KZ-fh-EsD" firstAttribute="centerX" secondItem="2ox-a1-Vy7" secondAttribute="centerX" id="1C4-PL-U5e"/>
+                            <constraint firstItem="BbV-Sd-YNp" firstAttribute="top" secondItem="JQX-mQ-hPX" secondAttribute="bottom" constant="42" id="3g8-tn-LAw"/>
+                            <constraint firstItem="BbV-Sd-YNp" firstAttribute="centerX" secondItem="2ox-a1-Vy7" secondAttribute="centerX" id="86t-lz-KBL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="J4G-9o-PUC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3g8-tn-LAw"/>
+                                <exclude reference="86t-lz-KBL"/>
+                                <exclude reference="1C4-PL-U5e"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="J4G-9o-PUC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="3g8-tn-LAw"/>
+                                <include reference="86t-lz-KBL"/>
+                                <include reference="1C4-PL-U5e"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Snap a Photo" id="G7t-lK-U1K"/>
                     <connections>
                         <outlet property="chooseBuuton" destination="BbV-Sd-YNp" id="4MI-Q4-sLM"/>
-                        <outlet property="imageView" destination="WDf-rf-W6y" id="eOc-Lx-tT9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NJT-nO-41E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461" y="606"/>
         </scene>
@@ -352,5 +385,6 @@
     <resources>
         <image name="Plus-66" width="22" height="22"/>
         <image name="happy_user" width="410" height="380"/>
+        <image name="stack" width="341" height="350"/>
     </resources>
 </document>

@@ -11,7 +11,7 @@ import UIKit
 class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
 
     
-    @IBOutlet var imageView: UIImageView!
+
     @IBOutlet var chooseBuuton: UIButton!
     var imagePicker = UIImagePickerController()
     
@@ -42,9 +42,6 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
             
         })
         
-        // TODO: Remove this call, we just want to remove this period
-        //        imageView.image = image
-
         SwiftSpinner.show("Analyzing image...")
         let service : ProductSearchService = ProductSearchService()
         service.getProductByImage(image) {

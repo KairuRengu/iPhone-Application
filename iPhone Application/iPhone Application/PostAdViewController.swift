@@ -122,7 +122,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     // MARK: Scrolling delegate work
-    func scrollViewDidScroll(scrollView: UIScrollView!) {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         // Load the pages that are now on screen
         loadVisiblePages()
     }
