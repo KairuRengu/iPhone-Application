@@ -11,7 +11,7 @@ var ProductDetailsCrawler = require('../services/product_crawler/ProductDetailsC
 var HachetteLinkScanner = require('../services/product_crawler/parsers/HachetteLinkScanner')
 var AmazonLinkScanner = require('../services/product_crawler/parsers/AmazonLinkScanner')
 var BestBuyUSScanner = require('../services/product_crawler/parsers/BestBuyUSScanner')
-
+var IGNScanner = require('../services/product_crawler/parsers/IGNScanner')
 
 /**
  * Provides facilities for looking up a product
@@ -19,7 +19,10 @@ var BestBuyUSScanner = require('../services/product_crawler/parsers/BestBuyUSSca
 class ProductService {
   constructor(lookupStrategy) {
     this.strategy = lookupStrategy
-    this._productCrawler = new ProductDetailsCrawler([new HachetteLinkScanner(), new AmazonLinkScanner(), new BestBuyUSScanner()])
+    var scanners = [new HachetteLinkScanner(), new IGNScanner(),
+      new AmazonLinkScanner(), new BestBuyUSScanner()]
+
+    this._productCrawler = new ProductDetailsCrawler(scanners)
 
     // HACK: Who is responsible for the caching mechanism? I don't know for sure
     // but for now this is fine
