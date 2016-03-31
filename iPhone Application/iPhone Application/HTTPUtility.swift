@@ -18,29 +18,29 @@ class HTTPUtility {
     static func POSTWithImage(adImage : UIImage, url : String, completeCallback : (NSDictionary?) -> Void)
     {
         // TODO: Implement the network activity indiciator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         let myUrl = NSURL(string: url);
-        
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
-        
         let param = [
             "apiKey"    : "8XudkSpsMjddj0JkMMn36"
         ]
         
-        let boundary = generateBoundaryString()
         
+        let boundary = generateBoundaryString()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         let imageData = UIImageJPEGRepresentation(adImage, 1)
-        
         if(imageData==nil)  { return; }
-        
         request.HTTPBody = createBodyWithParameters(param, filePathKey: "image", imageDataKey: imageData!, boundary: boundary)
         
         
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
+            
+            // Turn off the indiciator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             
             if((error) != nil) {
                 completeCallback(nil)
@@ -65,11 +65,57 @@ class HTTPUtility {
         task.resume()
     }
     
+    /**
+     Makes a POST request returning a NSDictionary, which represents the values from the JSON.
+    */
+    static func POSTWithParameters(url : String, params : [String : String], completeCallback : (NSDictionary?) -> Void)
+    {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let myUrl = NSURL(string: url);
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
+        
+        
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = createBodyWithParameters(params, filePathKey: "image", imageDataKey: nil, boundary: boundary)
+
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            // Turn off the indiciator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            if((error) != nil) {
+                completeCallback(nil)
+                return
+            }
+            
+            // Attempt to print the back data here
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("Response is back, result is: " + (responseString as! String))
+            
+            do {
+                let json : NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! NSDictionary
+                dispatch_async(dispatch_get_main_queue(), {
+                    completeCallback(json)
+                });
+            }
+            catch {
+                completeCallback(nil)
+            }
+        }
+        
+        task.resume()
+        
+    }
+    
     // The below functions were inspired (but not copied from) http://roadfiresoftware.com/2015/10/how-to-parse-json-with-swift-2/
     // Swift has changed a lot, code does not work properly across all versions :(
     // Also, http://swiftdeveloperblog.com/image-upload-example/
     
-    private static func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+    private static func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData?, boundary: String) -> NSData {
         let body = NSMutableData();
         if parameters != nil {
             for (key, value) in parameters! {
@@ -79,15 +125,17 @@ class HTTPUtility {
             }
         }
         
-        let filename = "ad.jpg"
-        let mimetype = "image/jpg"
+        if(imageDataKey != nil) {
+            let filename = "ad.jpg"
+            let mimetype = "image/jpg"
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+            body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+            body.appendData(imageDataKey!)
+            body.appendString("\r\n")
+            body.appendString("--\(boundary)--\r\n")
+        }
         
-        body.appendString("--\(boundary)\r\n")
-        body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-        body.appendData(imageDataKey)
-        body.appendString("\r\n")
-        body.appendString("--\(boundary)--\r\n")
         return body
     }
     
