@@ -53,4 +53,32 @@ class ProductSearchService {
         }
     }
     
+    /**
+     Fetches the product price, based on the product itself.
+     */
+    func postAdvertisement(ad : AdPost, completeCallback : (Bool) -> Void) {
+        let serviceUrl = ServiceConfiguration.getApiEndPoint() + "advertisement"
+        let mapper = EbayProductTypeToCategoryMapper()
+        
+        let params = [
+            "title": ad.getTitle(),
+            "description": ad.getDescription(),
+            "categoryId": mapper.getCategoryIdForProductType(ad.getCategory()),
+            "price": ad.getPrice().description
+        ]
+        
+        // TODO: Attach the photos
+        
+        HTTPUtility.POSTWithParameters(serviceUrl, params: params) {
+            json in
+            if(json != nil) {
+                completeCallback(true)
+            }
+            else {
+                completeCallback(false)
+            }
+        }
+    }
+    
+    
 }
