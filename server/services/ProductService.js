@@ -10,6 +10,8 @@ var ProductDetailsCrawler = require('../services/product_crawler/ProductDetailsC
 // There's likely a better way to configure this
 var HachetteLinkScanner = require('../services/product_crawler/parsers/HachetteLinkScanner')
 var AmazonLinkScanner = require('../services/product_crawler/parsers/AmazonLinkScanner')
+var BestBuyUSScanner = require('../services/product_crawler/parsers/BestBuyUSScanner')
+
 
 /**
  * Provides facilities for looking up a product
@@ -17,7 +19,7 @@ var AmazonLinkScanner = require('../services/product_crawler/parsers/AmazonLinkS
 class ProductService {
   constructor(lookupStrategy) {
     this.strategy = lookupStrategy
-    this._productCrawler = new ProductDetailsCrawler([new HachetteLinkScanner(), new AmazonLinkScanner()])
+    this._productCrawler = new ProductDetailsCrawler([new HachetteLinkScanner(), new AmazonLinkScanner(), new BestBuyUSScanner()])
 
     // HACK: Who is responsible for the caching mechanism? I don't know for sure
     // but for now this is fine
