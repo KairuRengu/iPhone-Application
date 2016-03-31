@@ -13,6 +13,10 @@ class MetadataAttachment {
   }
 
   _getTypeFromURL(resourceURL) {
+    // Premature exit if handed an invalid resource URL
+    if(!resourceURL)
+      return
+
     var IMAGE_TYPES = ['jpg', 'png', 'gif', 'bmp']
     var VIDEO_TYPES = ['mp4', 'ogv', 'avi']
 
