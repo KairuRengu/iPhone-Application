@@ -30,7 +30,7 @@ class ProductSearchService {
     /**
      Fetches the product price, based on the product itself.
     */
-    func getProductPrice(product : Product, completeCallback : (Int?) -> Void) {
+    func getProductPrice(product : Product, completeCallback : (Float?) -> Void) {
         let serviceUrl = ServiceConfiguration.getApiEndPoint() + "search/price"
         let params = [
             "title": product.getTitle()
@@ -38,7 +38,7 @@ class ProductSearchService {
         HTTPUtility.POSTWithParameters(serviceUrl, params: params) {
             json in
             if(json != nil) {
-                let price = json!["median"] as! Int
+                let price = json!["median"] as! Float
                 completeCallback(price)
             }
             else {

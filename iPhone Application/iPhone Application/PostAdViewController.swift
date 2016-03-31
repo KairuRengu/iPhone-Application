@@ -19,6 +19,9 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var pageImages: [UIImage] = []
     var pageViews: [UIImageView?] = []
     
+    // Posting stuff
+    var postingProduct : Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +55,32 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // TODO: Implement this back at some point, some point in the future, though
 //        self.pickerCategory.delegate = self
 //        self.pickerCategory.dataSource = self
+        
+        
+        // If there's a product, load it
+        if((postingProduct) != nil) {
+                fetchPricingAndPopulate()
+        }
+    }
+    
+    func fetchPricingAndPopulate() {
+        let service = ProductSearchService()
+        service.getProductPrice(postingProduct!) {
+            price in
+            // TODO: Wire this up to somewhere
+            dispatch_async(dispatch_get_main_queue()) {
+                // You would invoke the control change 
+                // KYLE: You can do this if you known where to grab that, we can just update controls directly
+            }
+        }
+    }
+    
+    /**
+     This function may return nil if it can't figure out or
+     fails to validate the content.
+    */
+    private func getAdPostFromPageModel() -> AdPost? {
+        return nil
     }
     
     func loadPage(page: Int) {
@@ -61,7 +90,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         
         // 1
-        if let pageView = pageViews[page] {
+        if let _ = pageViews[page] {
             // Do nothing. The view is already loaded.
         } else {
             // 2
