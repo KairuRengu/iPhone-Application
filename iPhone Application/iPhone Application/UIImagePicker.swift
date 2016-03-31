@@ -42,8 +42,20 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
             
         })
         
-        imageView.image = image
-        
+        // TODO: Remove this call, we just want to remove this period
+        //        imageView.image = image
+
+        SwiftSpinner.show("Analyzing image...")
+        let service : ProductSearchService = ProductSearchService()
+        service.getProductByImage(image) {
+            product in
+            print("Product coming back... I hope")
+            SwiftSpinner.hide() {
+                // You can now perform the segue into another view from here
+                // TODO: Figure out how to do that
+            }
+        }
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
