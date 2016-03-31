@@ -165,6 +165,17 @@ class HTTPUtility {
     }
     
     
+    // MARK: Resource fetching utilities
+    static func getImageFromUrl(url : String, completeCallback : (UIImage) -> Void) {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+            let urlResource = NSURL(string: url)
+            let imageData = NSData(contentsOfURL: urlResource!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            let image = UIImage(data: imageData!)
+            completeCallback(image!)
+        }
+    }
+    
+    
     // The below functions were inspired (but not copied from) http://roadfiresoftware.com/2015/10/how-to-parse-json-with-swift-2/
     // Swift has changed a lot, code does not work properly across all versions :(
     // Also, http://swiftdeveloperblog.com/image-upload-example/

@@ -25,6 +25,7 @@
 		753008E51CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E41CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift */; };
 		753008E71CADB23900EF9636 /* AdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E61CADB23900EF9636 /* AdPost.swift */; };
 		753008E91CADB3EE00EF9636 /* AdAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E81CADB3EE00EF9636 /* AdAgent.swift */; };
+		753008EC1CADC00A00EF9636 /* ResourcePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008EB1CADC00A00EF9636 /* ResourcePickerViewController.swift */; };
 		75FCD5911CAB49430019A03A /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FCD5901CAB49430019A03A /* PostAdViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		753008E41CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EbayProductTypeToCategoryMapper.swift; sourceTree = "<group>"; };
 		753008E61CADB23900EF9636 /* AdPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPost.swift; sourceTree = "<group>"; };
 		753008E81CADB3EE00EF9636 /* AdAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdAgent.swift; sourceTree = "<group>"; };
+		753008EB1CADC00A00EF9636 /* ResourcePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcePickerViewController.swift; sourceTree = "<group>"; };
 		75FCD5901CAB49430019A03A /* PostAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 		27A2F8341C97B15A00D82FAF /* iPhone Application */ = {
 			isa = PBXGroup;
 			children = (
+				753008EA1CADBFFB00EF9636 /* controllers */,
 				753008E11CAD9BF100EF9636 /* agent */,
 				753008DA1CAD976A00EF9636 /* lib */,
 				753008D31CAD8AE600EF9636 /* model */,
@@ -136,6 +139,14 @@
 				753008E81CADB3EE00EF9636 /* AdAgent.swift */,
 			);
 			name = agent;
+			sourceTree = "<group>";
+		};
+		753008EA1CADBFFB00EF9636 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				753008EB1CADC00A00EF9636 /* ResourcePickerViewController.swift */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 				27A2F8361C97B15A00D82FAF /* AppDelegate.swift in Sources */,
 				272DECAC1C97BED2006D2BF5 /* UIImagePicker.swift in Sources */,
 				753008E91CADB3EE00EF9636 /* AdAgent.swift in Sources */,
+				753008EC1CADC00A00EF9636 /* ResourcePickerViewController.swift in Sources */,
 				75FCD5911CAB49430019A03A /* PostAdViewController.swift in Sources */,
 				753008D51CAD8AF300EF9636 /* Product.swift in Sources */,
 				753008E01CAD9BB700EF9636 /* ProductType.swift in Sources */,
