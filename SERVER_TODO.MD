@@ -1,12 +1,5 @@
 TODO:
 
-  * Fetch some of the results, such as Wikipedia if possible and implement
-  some kind of `LinkScanner` which is able to gleam more information about
-  the product we're going to look up.
-    * We can use this for price tuning
-    * It can also be used to fill in some description / title data automatically
-    on a per item basis
-
   * eBay API to actually post ads on the behalf of the user
   * Time permitting, we should also look into reverse-engineering the Kijiji
     API and implementing posting there. It could be on the same REST call, on
@@ -26,3 +19,10 @@ DONE:
     * We should at minimum cache ThePriceGeek results to reduce serving times.
     We may be able to cache the reverse-image lookups somehow, but that's
     not decided yet.
+
+  * Fetch some of the results, such as Wikipedia if possible and implement
+  some kind of `LinkScanner` which is able to gleam more information about
+  the product we're going to look up.
+    * We can use this for price tuning
+    * It can also be used to fill in some description / title data automatically
+    on a per item basis
