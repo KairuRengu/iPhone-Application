@@ -23,9 +23,5 @@ class CreateProductAd: UIViewController {
     }
 
     @IBAction func PriceCheck(sender: UITextField) {
-        let Price = PriceTextField.text
-        
-        
-        
     }
 }
