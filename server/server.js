@@ -38,6 +38,11 @@ _registerMiddleware() {
     .use(restify.bodyParser())
     .use(restify.queryParser())
     .use(restify.authorizationParser());
+
+    this.server.on('uncaughtException', function (req, res, route, err) {
+       console.log(err.stack)
+    });
+
   }
 
  _registerRoutes() {
