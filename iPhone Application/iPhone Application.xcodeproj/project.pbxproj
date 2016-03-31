@@ -13,6 +13,7 @@
 		27A2F83B1C97B15B00D82FAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A2F8391C97B15B00D82FAF /* Main.storyboard */; };
 		27A2F83D1C97B15B00D82FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27A2F83C1C97B15B00D82FAF /* Assets.xcassets */; };
 		27A2F8401C97B15B00D82FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A2F83E1C97B15B00D82FAF /* LaunchScreen.storyboard */; };
+		75FCD5911CAB49430019A03A /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FCD5901CAB49430019A03A /* PostAdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		27A2F83C1C97B15B00D82FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27A2F83F1C97B15B00D82FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27A2F8411C97B15B00D82FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75FCD5901CAB49430019A03A /* PostAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				27A2F83C1C97B15B00D82FAF /* Assets.xcassets */,
 				27A2F83E1C97B15B00D82FAF /* LaunchScreen.storyboard */,
 				27A2F8411C97B15B00D82FAF /* Info.plist */,
+				75FCD5901CAB49430019A03A /* PostAdViewController.swift */,
 			);
 			path = "iPhone Application";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				27A2F8381C97B15B00D82FAF /* ViewController.swift in Sources */,
 				27A2F8361C97B15A00D82FAF /* AppDelegate.swift in Sources */,
 				272DECAC1C97BED2006D2BF5 /* UIImagePicker.swift in Sources */,
+				75FCD5911CAB49430019A03A /* PostAdViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
