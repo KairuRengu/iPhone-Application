@@ -4,6 +4,11 @@ var MemoryCache = require('../dal/MemoryCache')
 var ImageHasher = require('../lib/ImageHasher')
 var Product = require('../model/Product')
 var ImageUploader = require('../lib/ImageUploader')
+var ProductDetailsCrawler = require('../services/product_crawler/ProductDetailsCrawler')
+
+// Some scanners, which I'm not sure if they belong in this class, but yeah...
+// There's likely a better way to configure this
+var HachetteLinkScanner = require('../services/product_crawler/parsers/HachetteLinkScanner')
 
 /**
  * Provides facilities for looking up a product
@@ -11,6 +16,7 @@ var ImageUploader = require('../lib/ImageUploader')
 class ProductService {
   constructor(lookupStrategy) {
     this.strategy = lookupStrategy
+    this._productCrawler = new ProductDetailsCrawler([new HachetteLinkScanner()])
 
     // HACK: Who is responsible for the caching mechanism? I don't know for sure
     // but for now this is fine
@@ -39,12 +45,12 @@ class ProductService {
     uploader.uploadImageFromDisk(filename, (imgurUrl) => {
       // With this, we'll go on to fetch the best guess now...
       this.strategy.queueUrl(imgurUrl)
-      this.strategy.fetchProductInformationFromQueue((guess) => {
-        // TODO: More pipeline information is probably needed here to figure
-        // out the specifics of how everything is going to work... such as how
-        // we're going to feed more data into it for more accurate lookups
-        var product = new Product(guess, null)
-        callback(product)
+      this.strategy.fetchProductInformationFromQueue((guess, links) => {
+        this._productCrawler.getProductDetailsForUrls(links, (metadata) => {
+          var product = new Product(guess)
+          product.mixInMetadata(metadata)
+          callback(product)
+        })
       })
     })
   }

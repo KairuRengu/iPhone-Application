@@ -27,13 +27,14 @@ class ProductDetailsCrawler {
     urls.forEach((url) => {
       this._getProductDetailFromUrl(url, (newData) => {
         if(newData) {
-          this._inheritMetadata(data, newData)
+          data = this._inheritMetadata(data, newData)
         }
         returned++
-        if(returned == urls.length) {
+        if(returned == urls.length + 1) {
           callback(data)
         }
       })
+
     })
   }
 
@@ -70,7 +71,9 @@ class ProductDetailsCrawler {
         prev.attachments.push(attachment)
       })
     }
+    return prev
   }
+
 }
 
 module.exports = ProductDetailsCrawler
