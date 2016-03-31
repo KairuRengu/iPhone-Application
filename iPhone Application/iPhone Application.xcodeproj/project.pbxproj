@@ -22,6 +22,7 @@
 		753008DE1CAD9AF800EF9636 /* ProductAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008DD1CAD9AF800EF9636 /* ProductAttachment.swift */; };
 		753008E01CAD9BB700EF9636 /* ProductType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008DF1CAD9BB700EF9636 /* ProductType.swift */; };
 		753008E31CAD9C1500EF9636 /* ProductTypeForAdAgentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E21CAD9C1500EF9636 /* ProductTypeForAdAgentMapper.swift */; };
+		753008E51CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E41CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift */; };
 		75FCD5911CAB49430019A03A /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FCD5901CAB49430019A03A /* PostAdViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		753008DD1CAD9AF800EF9636 /* ProductAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductAttachment.swift; sourceTree = "<group>"; };
 		753008DF1CAD9BB700EF9636 /* ProductType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductType.swift; sourceTree = "<group>"; };
 		753008E21CAD9C1500EF9636 /* ProductTypeForAdAgentMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTypeForAdAgentMapper.swift; sourceTree = "<group>"; };
+		753008E41CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EbayProductTypeToCategoryMapper.swift; sourceTree = "<group>"; };
 		75FCD5901CAB49430019A03A /* PostAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +78,7 @@
 		27A2F8341C97B15A00D82FAF /* iPhone Application */ = {
 			isa = PBXGroup;
 			children = (
-				753008E11CAD9BF100EF9636 /* aux */,
+				753008E11CAD9BF100EF9636 /* agent */,
 				753008DA1CAD976A00EF9636 /* lib */,
 				753008D31CAD8AE600EF9636 /* model */,
 				753008CE1CAD897600EF9636 /* api */,
@@ -121,12 +123,13 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
-		753008E11CAD9BF100EF9636 /* aux */ = {
+		753008E11CAD9BF100EF9636 /* agent */ = {
 			isa = PBXGroup;
 			children = (
 				753008E21CAD9C1500EF9636 /* ProductTypeForAdAgentMapper.swift */,
+				753008E41CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift */,
 			);
-			name = aux;
+			name = agent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +205,7 @@
 			files = (
 				753008D01CAD89A400EF9636 /* ProductSearchService.swift in Sources */,
 				27A2F8381C97B15B00D82FAF /* ViewController.swift in Sources */,
+				753008E51CADAD2600EF9636 /* EbayProductTypeToCategoryMapper.swift in Sources */,
 				753008D21CAD89C600EF9636 /* ServiceConfiguration.swift in Sources */,
 				753008E31CAD9C1500EF9636 /* ProductTypeForAdAgentMapper.swift in Sources */,
 				753008D71CAD8D2D00EF9636 /* Extensions.swift in Sources */,
