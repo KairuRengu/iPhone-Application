@@ -27,10 +27,13 @@ class ProductMetadata {
    * @param {[string]} resource The URL to the resource we care about
    */
   addAttachment(resourceURL) {
+    if(!resourceURL)
+      return
+      
     var attachment = new MetadataAttachment(resourceURL)
     this.attachments.push(attachment)
   }
-  
+
   isComplete() {
     return !_.isUndefined(this.title) &&  !_.isUndefined(this.description) && !_.isUndefined(this.productType)
   }

@@ -12,6 +12,7 @@ var HachetteLinkScanner = require('../services/product_crawler/parsers/HachetteL
 var AmazonLinkScanner = require('../services/product_crawler/parsers/AmazonLinkScanner')
 var BestBuyUSScanner = require('../services/product_crawler/parsers/BestBuyUSScanner')
 var IGNScanner = require('../services/product_crawler/parsers/IGNScanner')
+var TargetLinkScanner = require('../services/product_crawler/parsers/TargetLinkScanner')
 
 /**
  * Provides facilities for looking up a product
@@ -20,7 +21,7 @@ class ProductService {
   constructor(lookupStrategy) {
     this.strategy = lookupStrategy
     var scanners = [new HachetteLinkScanner(), new IGNScanner(),
-      new AmazonLinkScanner(), new BestBuyUSScanner()]
+      new AmazonLinkScanner(), new BestBuyUSScanner(), new TargetLinkScanner()]
 
     this._productCrawler = new ProductDetailsCrawler(scanners)
 

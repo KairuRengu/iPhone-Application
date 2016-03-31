@@ -27,6 +27,12 @@ class AmazonScraperParser {
     var $img = $("#img-canvas img").first()
     var imageUrl = $img.attr('src')
     data.addAttachment(imageUrl)
+
+    // Also try and add attachments from other sources where required...
+    $img = $("#imgTagWrapperId img")
+    imageUrl = $img.attr('src')
+    data.addAttachment(imageUrl)
+
     return data
   }
 
