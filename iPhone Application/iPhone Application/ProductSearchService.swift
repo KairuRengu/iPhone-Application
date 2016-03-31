@@ -23,8 +23,12 @@ class ProductSearchService {
         let serviceUrl = ServiceConfiguration.getApiEndPoint() + "search"
         HTTPUtility.POSTWithImage(image, url: serviceUrl) {
             json in
-            print(json)
-            completeCallback(nil)
+            if(json != nil) {
+                let product = Product(json: json!)
+                completeCallback(product)
+            } else {
+                completeCallback(nil)
+            }
         }
         
     }

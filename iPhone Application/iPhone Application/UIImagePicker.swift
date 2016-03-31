@@ -49,14 +49,26 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
         let service : ProductSearchService = ProductSearchService()
         service.getProductByImage(image) {
             product in
-            print("Product coming back... I hope")
-            SwiftSpinner.hide() {
-                // You can now perform the segue into another view from here
-                // TODO: Figure out how to do that
+            if(product != nil && product?.getTitle() != "") {
+                SwiftSpinner.hide() {
+                    // TODO: Perform the segue
+                }
             }
+            else {
+                SwiftSpinner.hide()
+                self.displayNetworkException()
+            }
+            
         }
-
     }
+    
+    private func displayNetworkException() {
+        let alert = UIAlertController(title: "Information", message: "The server failed to identify this product. You can try a different image.", preferredStyle: UIAlertControllerStyle.Alert)
+        // TODO: Maybe add an option to "Create ad anyway?"
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

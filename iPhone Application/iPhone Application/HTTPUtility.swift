@@ -17,6 +17,8 @@ class HTTPUtility {
     
     static func POSTWithImage(adImage : UIImage, url : String, completeCallback : (NSDictionary?) -> Void)
     {
+        // TODO: Implement the network activity indiciator
+        
         let myUrl = NSURL(string: url);
         
         let request = NSMutableURLRequest(URL:myUrl!);

@@ -45,11 +45,11 @@ class Product {
         }
     }
     
-    private func getTitle() -> String {
+    func getTitle() -> String {
         return title
     }
 
-    private func getDescription() -> String {
+    func getDescription() -> String {
         return description
     }
     
@@ -57,14 +57,14 @@ class Product {
      Returns the type of product -- according to some generic, normalized mapping.
      If the product could not be identified, this may be nil. Be careful when unwrapping it
     */
-    private func getProductType() -> ProductType? {
+    func getProductType() -> ProductType? {
         return productType;
     }
     
     /**
         These may be empty, but never null.
     */
-    private func getAttachments() -> [ProductAttachment] {
+    func getAttachments() -> [ProductAttachment] {
         return self.attachments
     }    
 }
