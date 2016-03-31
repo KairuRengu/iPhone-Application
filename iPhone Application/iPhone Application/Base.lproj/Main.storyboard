@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rAz-Tz-sMz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j9Y-TL-q4H">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -206,12 +206,96 @@
                     <view key="view" contentMode="scaleToFill" id="kyC-qQ-RUG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Posted!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbr-M5-Gw4">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" red="0.30454582489999998" green="0.4143401874" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy_user" translatesAutoresizingMaskIntoConstraints="NO" id="NWc-hy-HlY">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="5Bm-KT-dzY"/>
+                                    <constraint firstAttribute="height" constant="268" id="Cwi-GP-8hm"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Bm-KT-dzY"/>
+                                        <exclude reference="Cwi-GP-8hm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="5Bm-KT-dzY"/>
+                                        <include reference="Cwi-GP-8hm"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugs-K3-rSR">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Post Another"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cH-pI-6vn">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="View Ad"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1cH-pI-6vn" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="9jF-RR-ayY"/>
+                            <constraint firstItem="NWc-hy-HlY" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="DuO-Is-J4s"/>
+                            <constraint firstItem="1cH-pI-6vn" firstAttribute="top" secondItem="NWc-hy-HlY" secondAttribute="bottom" constant="37" id="dMX-Rs-48D"/>
+                            <constraint firstItem="wbr-M5-Gw4" firstAttribute="top" secondItem="bZs-lO-PkT" secondAttribute="bottom" constant="56" id="eWl-ey-S0j"/>
+                            <constraint firstItem="NWc-hy-HlY" firstAttribute="top" secondItem="wbr-M5-Gw4" secondAttribute="bottom" constant="69.5" id="iWa-sI-gR4"/>
+                            <constraint firstItem="Ugs-K3-rSR" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="mii-BH-eDe"/>
+                            <constraint firstItem="wbr-M5-Gw4" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="tXE-eU-fJh"/>
+                            <constraint firstItem="NTh-CS-Kwf" firstAttribute="top" secondItem="Ugs-K3-rSR" secondAttribute="bottom" constant="8" id="uxn-PZ-Kru"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wbr-M5-Gw4"/>
+                                <exclude reference="NWc-hy-HlY"/>
+                                <exclude reference="Ugs-K3-rSR"/>
+                                <exclude reference="1cH-pI-6vn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="eWl-ey-S0j"/>
+                                <exclude reference="tXE-eU-fJh"/>
+                                <exclude reference="DuO-Is-J4s"/>
+                                <exclude reference="iWa-sI-gR4"/>
+                                <exclude reference="9jF-RR-ayY"/>
+                                <exclude reference="dMX-Rs-48D"/>
+                                <exclude reference="mii-BH-eDe"/>
+                                <exclude reference="uxn-PZ-Kru"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="wbr-M5-Gw4"/>
+                                <include reference="NWc-hy-HlY"/>
+                                <include reference="Ugs-K3-rSR"/>
+                                <include reference="1cH-pI-6vn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="eWl-ey-S0j"/>
+                                <include reference="tXE-eU-fJh"/>
+                                <include reference="DuO-Is-J4s"/>
+                                <include reference="iWa-sI-gR4"/>
+                                <include reference="9jF-RR-ayY"/>
+                                <include reference="dMX-Rs-48D"/>
+                                <include reference="mii-BH-eDe"/>
+                                <include reference="uxn-PZ-Kru"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3I-cT-YMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="-128"/>
+            <point key="canvasLocation" x="1347" y="-205.5"/>
         </scene>
         <!--Add Picture-->
         <scene sceneID="dpS-UY-wXr">
@@ -276,26 +360,10 @@
             </objects>
             <point key="canvasLocation" x="-171" y="937"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Od5-9V-aDN">
-            <objects>
-                <viewController id="dZa-Nk-jRZ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rxz-Kv-zQ0"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xmo-ar-tUL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NRO-Iz-5fK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IZo-i7-mc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Camera-66" width="22" height="22"/>
         <image name="Plus-66" width="22" height="22"/>
+        <image name="happy_user" width="410" height="380"/>
     </resources>
 </document>
