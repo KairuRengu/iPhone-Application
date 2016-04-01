@@ -13,7 +13,6 @@
 		27A2F8381C97B15B00D82FAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A2F8371C97B15B00D82FAF /* ViewController.swift */; };
 		27A2F83B1C97B15B00D82FAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A2F8391C97B15B00D82FAF /* Main.storyboard */; };
 		27A2F83D1C97B15B00D82FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27A2F83C1C97B15B00D82FAF /* Assets.xcassets */; };
-		27A2F8401C97B15B00D82FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A2F83E1C97B15B00D82FAF /* LaunchScreen.storyboard */; };
 		753008D01CAD89A400EF9636 /* ProductSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008CF1CAD89A400EF9636 /* ProductSearchService.swift */; };
 		753008D21CAD89C600EF9636 /* ServiceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008D11CAD89C600EF9636 /* ServiceConfiguration.swift */; };
 		753008D51CAD8AF300EF9636 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008D41CAD8AF300EF9636 /* Product.swift */; };
@@ -27,6 +26,7 @@
 		753008E71CADB23900EF9636 /* AdPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E61CADB23900EF9636 /* AdPost.swift */; };
 		753008E91CADB3EE00EF9636 /* AdAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008E81CADB3EE00EF9636 /* AdAgent.swift */; };
 		753008EC1CADC00A00EF9636 /* ResourcePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753008EB1CADC00A00EF9636 /* ResourcePickerViewController.swift */; };
+		7541848F1CADFD3200BFECCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7541848E1CADFD3200BFECCB /* Images.xcassets */; };
 		75FCD5911CAB49430019A03A /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FCD5901CAB49430019A03A /* PostAdViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,6 @@
 		27A2F8371C97B15B00D82FAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27A2F83A1C97B15B00D82FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27A2F83C1C97B15B00D82FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		27A2F83F1C97B15B00D82FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27A2F8411C97B15B00D82FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		753008CF1CAD89A400EF9636 /* ProductSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSearchService.swift; sourceTree = "<group>"; };
 		753008D11CAD89C600EF9636 /* ServiceConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceConfiguration.swift; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		753008E61CADB23900EF9636 /* AdPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPost.swift; sourceTree = "<group>"; };
 		753008E81CADB3EE00EF9636 /* AdAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdAgent.swift; sourceTree = "<group>"; };
 		753008EB1CADC00A00EF9636 /* ResourcePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcePickerViewController.swift; sourceTree = "<group>"; };
+		7541848E1CADFD3200BFECCB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75FCD5901CAB49430019A03A /* PostAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,10 +97,10 @@
 				278B9E921CADE1CC0059A1C0 /* CreateProductAd.swift */,
 				27A2F8391C97B15B00D82FAF /* Main.storyboard */,
 				27A2F83C1C97B15B00D82FAF /* Assets.xcassets */,
-				27A2F83E1C97B15B00D82FAF /* LaunchScreen.storyboard */,
 				27A2F8411C97B15B00D82FAF /* Info.plist */,
 				75FCD5901CAB49430019A03A /* PostAdViewController.swift */,
 				753008D61CAD8D2D00EF9636 /* Extensions.swift */,
+				7541848E1CADFD3200BFECCB /* Images.xcassets */,
 			);
 			path = "iPhone Application";
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27A2F8401C97B15B00D82FAF /* LaunchScreen.storyboard in Resources */,
+				7541848F1CADFD3200BFECCB /* Images.xcassets in Resources */,
 				27A2F83D1C97B15B00D82FAF /* Assets.xcassets in Resources */,
 				27A2F83B1C97B15B00D82FAF /* Main.storyboard in Resources */,
 			);
@@ -253,14 +253,6 @@
 				27A2F83A1C97B15B00D82FAF /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		27A2F83E1C97B15B00D82FAF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27A2F83F1C97B15B00D82FAF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -353,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "iPhone Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.wlu.iPhone-Application";
@@ -364,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "iPhone Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.wlu.iPhone-Application";
