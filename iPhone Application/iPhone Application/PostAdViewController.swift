@@ -13,8 +13,17 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
      @IBOutlet var TextFieldText: [UITextField] = []
     @IBOutlet weak var TextView: UITextView!
+    
+    @IBOutlet weak var textPrice: UITextField!
+    @IBOutlet weak var textTitle: UITextField!
+    @IBOutlet weak var textDescription: UITextView!
+    
+    
     var categories = ["Book", "Video Game", "DVD", "Music", "Misc"]
     
     var pageImages: [UIImage] = []
@@ -22,64 +31,41 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // Posting stuff
     var postingProduct : Product?
+    var currentImage : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
-        // Wire delegate to be yourself
-//        self.scrollView.delegate = self
-//        
-//        pageImages = [UIImage(named: "photo1.png")!,
-//            UIImage(named: "photo2.png")!,
-//            UIImage(named: "photo3.png")!,
-//            UIImage(named: "photo4.png")!,
-//            UIImage(named: "photo5.png")!]
-//        
-//        let pageCount = pageImages.count
-//        
-//        pageControl.currentPage = 0
-//        pageControl.numberOfPages = pageCount
-//        
-//
-//        for _ in 0..<pageCount {
-//            pageViews.append(nil)
-//        }
-//        
-
-//        let pagesScrollViewSize = scrollView.frame.size
-//        scrollView.contentSize = CGSize(width: pagesScrollViewSize.width * CGFloat(pageImages.count),
-//            height: pagesScrollViewSize.height)
-//        
-        // 5
-     //   loadVisiblePages()
-        
-        // TODO: Implement this back at some point, some point in the future, though
-//        self.pickerCategory.delegate = self
-//        self.pickerCategory.dataSource = self
-        
         
         // If there's a product, load it
         if((postingProduct) != nil) {
                 fetchPricingAndPopulate()
         }
-  
-        print("desu")
-        
     }
     
 
     func fetchPricingAndPopulate() {
+        
+        // Fill in the fields accordingly to this
+        textTitle.text = postingProduct?.getTitle()
+        textDescription.text = postingProduct?.getDescription()
+        
+        
+        updateImageView()
+        
         let service = ProductSearchService()
         service.getProductPrice(postingProduct!) {
             price in
             // TODO: Wire this up to somewhere
             dispatch_async(dispatch_get_main_queue()) {
-                // You would invoke the control change 
-                // KYLE: You can do this if you known where to grab that, we can just update controls directly
-                print(price)
+                self.textPrice.text = price?.description
             }
         }
+    }
+    
+    func updateImageView() {
+        self.imageView.image = self.currentImage
     }
     
     /**

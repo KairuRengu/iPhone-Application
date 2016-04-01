@@ -14,6 +14,7 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
 
     @IBOutlet var chooseBuuton: UIButton!
     var imagePicker = UIImagePickerController()
+    private var selectedImage : UIImage?
     
     @IBAction func btnClicked(){
         
@@ -49,6 +50,9 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
             
         })
         
+        // Set the selected ima
+        selectedImage = image
+        
         SwiftSpinner.show("Analyzing image...")
         let service : ProductSearchService = ProductSearchService()
         service.getProductByImage(image) {
@@ -69,6 +73,7 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let controller = segue.destinationViewController as! PostAdViewController
         controller.postingProduct = sender as! Product!
+        controller.currentImage = self.selectedImage!
     }
     
     private func displayNetworkException() {
