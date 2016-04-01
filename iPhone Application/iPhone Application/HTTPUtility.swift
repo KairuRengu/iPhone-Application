@@ -75,13 +75,16 @@ class HTTPUtility {
         let myUrl = NSURL(string: url);
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
-        
-        let p = params["title"]?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet())
-        print(p)
-        let paramString = "title=\(p)"
-        
-        request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
+        do {
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options:  NSJSONWritingOptions(rawValue:0))
+        }
+        catch {
+            completeCallback(nil)
+        }
+    
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
