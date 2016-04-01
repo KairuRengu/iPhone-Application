@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tmY-IE-DcL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bwS-eZ-7It">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -411,41 +411,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K5L-f1-nER">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K5L-f1-nER">
                                 <rect key="frame" x="0.0" y="64" width="600" height="510"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-fh-EsD">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-fh-EsD">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbV-Sd-YNp">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
-                                                <size key="titleShadowOffset" width="4" height="0.0"/>
-                                                <state key="normal" title="Photo Albums" image="stack"/>
-                                                <variation key="heightClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="170" y="106" width="260" height="288"/>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="btnClicked" destination="tmY-IE-DcL" eventType="touchUpInside" id="HTe-rO-W2B"/>
-                                                </connections>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="QO9-mn-4zs">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlv-KV-ZMk">
+                                                <rect key="frame" x="0.0" y="225" width="600" height="30"/>
+                                                <state key="normal" title="Photo Album"/>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qlv-KV-ZMk" firstAttribute="centerX" secondItem="8KZ-fh-EsD" secondAttribute="centerX" id="hMl-bH-59v"/>
+                                        </constraints>
                                         <variation key="heightClass=regular" axis="vertical" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="251" y="373" width="99" height="21"/>
                                         </variation>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qti-E7-2uE">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qti-E7-2uE">
                                         <rect key="frame" x="0.0" y="255" width="600" height="255"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfO-3a-xRS">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
-                                                <size key="titleShadowOffset" width="4" height="0.0"/>
-                                                <state key="normal" title="Photo Albums" image="stack"/>
-                                                <variation key="heightClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="170" y="106" width="260" height="288"/>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="btnClicked" destination="tmY-IE-DcL" eventType="touchUpInside" id="KVI-Iz-hOU"/>
-                                                </connections>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="hcv-vp-dHj">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zg-bg-tmW">
+                                                <rect key="frame" x="0.0" y="225" width="600" height="30"/>
+                                                <state key="normal" title="Photo Album"/>
                                             </button>
                                         </subviews>
                                         <variation key="heightClass=regular" axis="vertical" ambiguous="YES" misplaced="YES">
@@ -457,15 +452,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K5L-f1-nER" firstAttribute="top" secondItem="JQX-mQ-hPX" secondAttribute="bottom" id="LOQ-9t-OKn"/>
+                            <constraint firstItem="K5L-f1-nER" firstAttribute="top" secondItem="2ox-a1-Vy7" secondAttribute="top" constant="64" id="ZrA-EF-dv3"/>
                             <constraint firstItem="K5L-f1-nER" firstAttribute="height" secondItem="2ox-a1-Vy7" secondAttribute="height" multiplier="0.85" id="fm2-LN-ePZ"/>
                             <constraint firstItem="K5L-f1-nER" firstAttribute="width" secondItem="2ox-a1-Vy7" secondAttribute="width" id="nBs-e7-C4t"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Snap a Photo" id="G7t-lK-U1K"/>
-                    <connections>
-                        <outlet property="chooseBuuton" destination="BbV-Sd-YNp" id="4MI-Q4-sLM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJT-nO-41E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
