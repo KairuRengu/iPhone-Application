@@ -75,6 +75,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             dispatch_async(dispatch_get_main_queue()) {
                 // You would invoke the control change 
                 // KYLE: You can do this if you known where to grab that, we can just update controls directly
+                print(price)
             }
         }
     }

@@ -76,10 +76,11 @@ class HTTPUtility {
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
         
+        let p = params["title"]?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet())
+        print(p)
+        let paramString = "title=\(p)"
         
-        let boundary = generateBoundaryString()
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = createBodyWithParameters(params, filePathKey: "image", imageDataKey: nil, boundary: boundary)
+        request.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
 
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in

@@ -32,7 +32,7 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
-            imagePicker.allowsEditing = false            
+            imagePicker.allowsEditing = false
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
@@ -55,7 +55,7 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
             product in
             if(product != nil && product?.getTitle() != "") {
                 SwiftSpinner.hide() {
-                    // TODO: Perform the segue
+                    self.performSegueWithIdentifier("EditAd", sender: product)
                 }
             }
             else {
@@ -64,6 +64,11 @@ class UIImagePicker: UIViewController, UINavigationControllerDelegate, UIImagePi
             }
             
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController as! PostAdViewController
+        controller.postingProduct = sender as! Product!
     }
     
     private func displayNetworkException() {
