@@ -417,17 +417,20 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8KZ-fh-EsD">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="QO9-mn-4zs">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="QO9-mn-4zs">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="235" id="1Ou-26-rGM"/>
+                                                </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlv-KV-ZMk">
-                                                <rect key="frame" x="0.0" y="225" width="600" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-Oc-6TA">
+                                                <rect key="frame" x="0.0" y="235" width="600" height="20"/>
                                                 <state key="normal" title="Photo Album"/>
+                                                <connections>
+                                                    <action selector="btnClicked" destination="tmY-IE-DcL" eventType="touchUpInside" id="TIe-0e-hFQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="qlv-KV-ZMk" firstAttribute="centerX" secondItem="8KZ-fh-EsD" secondAttribute="centerX" id="hMl-bH-59v"/>
-                                        </constraints>
                                         <variation key="heightClass=regular" axis="vertical" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="251" y="373" width="99" height="21"/>
                                         </variation>
@@ -435,12 +438,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qti-E7-2uE">
                                         <rect key="frame" x="0.0" y="255" width="600" height="255"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="hcv-vp-dHj">
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cam" translatesAutoresizingMaskIntoConstraints="NO" id="hcv-vp-dHj">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zg-bg-tmW">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5T-gW-F5v" userLabel="Camera">
                                                 <rect key="frame" x="0.0" y="225" width="600" height="30"/>
-                                                <state key="normal" title="Photo Album"/>
+                                                <state key="normal" title="Camera"/>
+                                                <connections>
+                                                    <action selector="cameraClicked:" destination="tmY-IE-DcL" eventType="touchUpInside" id="cW8-or-68t"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <variation key="heightClass=regular" axis="vertical" ambiguous="YES" misplaced="YES">
@@ -485,6 +491,7 @@
     </scenes>
     <resources>
         <image name="Plus-66" width="22" height="22"/>
+        <image name="cam" width="256" height="256"/>
         <image name="happy_user" width="410" height="380"/>
         <image name="stack" width="341" height="350"/>
     </resources>
