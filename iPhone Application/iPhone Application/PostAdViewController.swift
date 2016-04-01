@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate {
+class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate, UIActionSheetDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    
+    @IBOutlet weak var CategoryLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
      @IBOutlet var TextFieldText: [UITextField] = []
     @IBOutlet weak var TextView: UITextView!
@@ -188,4 +188,36 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         view.endEditing(true)
     }
     
+
+    
+    //add category function to allow the user to add a category to the ad
+    @IBAction func AddCategory(sender: AnyObject) {
+        //define the option menu
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        // Declare what the user can select as a category
+        let AddBookCategory = UIAlertAction(title: "Book", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Book"})
+        let AddMovieCategory = UIAlertAction(title: "Movie", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Movie"})
+        let AddMusicCategory = UIAlertAction(title: "Music", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Music"})
+        let AddGameCategory = UIAlertAction(title: "Game", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Game"})
+        
+        //Cancel the action and do nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in})
+        
+        
+        // Add the options to the Action Sheet
+        optionMenu.addAction(AddBookCategory)
+        optionMenu.addAction(AddMovieCategory)
+        optionMenu.addAction(AddMusicCategory)
+        optionMenu.addAction(AddGameCategory)
+        optionMenu.addAction(cancelAction)
+        
+        //present the Action sheet controller to the user
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
 }
