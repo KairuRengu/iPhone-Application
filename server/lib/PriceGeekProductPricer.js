@@ -37,6 +37,7 @@ class PriceGeekProductPricer extends ProductPricer {
         var that = this;
         this._getHTMLForProduct(product, function(html, error) {
           if(error) {
+            console.log(error)
             callback(null);
           }
           try {
@@ -44,6 +45,7 @@ class PriceGeekProductPricer extends ProductPricer {
             callback(priceSnapshot)
           }
           catch(e) {
+            console.log(e)
             callback(null);
           }
         })

@@ -25,7 +25,7 @@ class ProductPriceService {
     // Otherwise, we'll need to head out the pricing service and go from there
     this._productPricer.getPricingInformationForProduct(product, (pricing) => {
       if(pricing != null) {
-        this._cache.addToCache(product.name, pricing)
+        this._cache.addToCache(product.title || product.name, pricing)
       }
       callback(pricing)
     })

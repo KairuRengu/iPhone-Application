@@ -62,7 +62,8 @@ class ProductSearchRoute {
       if(pricing) {
         resource.status(200)
         resource.send(pricing)
-      } else {
+        console.log(pricing)
+      } else {        
         resource.send(404)
       }
     })
