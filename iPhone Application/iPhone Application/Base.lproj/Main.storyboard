@@ -7,7 +7,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Post Ad View Controller-->
+        <!--Post Ad-->
         <scene sceneID="maU-t9-Lvi">
             <objects>
                 <viewController id="JwZ-fg-fKS" customClass="PostAdViewController" customModule="iPhone_Application" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,6 +133,9 @@
                             <constraint firstItem="dQu-Zd-jFR" firstAttribute="bottom" secondItem="maL-cq-NWq" secondAttribute="bottomMargin" id="zTp-1G-V5V"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Post Ad" id="tJS-5B-NkE">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="UVo-5E-71x"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="TextView" destination="D2Y-Af-Uce" id="LlB-Ql-48t"/>
                         <outlet property="imageView" destination="KCB-Ta-W3m" id="wUB-VY-cAY"/>
