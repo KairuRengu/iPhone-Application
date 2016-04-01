@@ -13,7 +13,8 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-    
+     @IBOutlet var TextFieldText: [UITextField] = []
+    @IBOutlet weak var TextView: UITextView!
     var categories = ["Book", "Video Game", "DVD", "Music", "Misc"]
     
     var pageImages: [UIImage] = []
@@ -24,7 +25,8 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         // Wire delegate to be yourself
 //        self.scrollView.delegate = self
 //        
@@ -182,6 +184,22 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categories[row]
+    }
+
+    @IBAction func TextFieldDoneEditing(sender: UITextField){
+        //sends the keyboard away when the user is done editing/
+        sender.resignFirstResponder()
+    }
+    @IBAction func BackgroundTap(sender: UIControl){
+        //stops all keyboards for any text field.
+        TextFieldText[0].resignFirstResponder()
+        TextFieldText[1].resignFirstResponder()
+        TextFieldText[2].resignFirstResponder()
+    }
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 }
