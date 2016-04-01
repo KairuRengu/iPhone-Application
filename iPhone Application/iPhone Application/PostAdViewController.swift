@@ -61,8 +61,12 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if((postingProduct) != nil) {
                 fetchPricingAndPopulate()
         }
+  
+        print("desu")
+        
     }
     
+
     func fetchPricingAndPopulate() {
         let service = ProductSearchService()
         service.getProductPrice(postingProduct!) {
@@ -154,6 +158,10 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // Load the pages that are now on screen
         loadVisiblePages()
+
+        if scrollView.contentOffset.x>0 {
+            scrollView.contentOffset.x = 0
+        }
     }
     
     
