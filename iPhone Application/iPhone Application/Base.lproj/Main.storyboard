@@ -142,7 +142,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post Ad" id="tJS-5B-NkE">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="UVo-5E-71x"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="UVo-5E-71x">
+                            <connections>
+                                <action selector="ValidatePost:" destination="JwZ-fg-fKS" id="zlH-2C-Kxv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="CategoryLabel" destination="6UB-1G-W2u" id="5e5-np-7up"/>

@@ -248,4 +248,25 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         //present the Action sheet controller to the user
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
+    
+    @IBAction func ValidatePost(sender: AnyObject) {
+        let errorMenu = UIAlertController(title: nil, message: "Invalid Advertisement", preferredStyle: .ActionSheet)
+        if(TextFieldText[0].text!.isEmpty == true){
+            let cancelAction = UIAlertAction(title: "Your advertisement does not have a title", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in})
+                errorMenu.addAction(cancelAction)
+                self.presentViewController(errorMenu, animated: true, completion: nil)
+        }else if (TextFieldText[1].text!.isEmpty == true){
+            let cancelAction = UIAlertAction(title: "Your advertisement is missing a description", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in})
+            errorMenu.addAction(cancelAction)
+            self.presentViewController(errorMenu, animated: true, completion: nil)
+        }else if (TextFieldText[2].text!.isEmpty == true){
+            let cancelAction = UIAlertAction(title: "Your product needs to have a category", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in})
+            errorMenu.addAction(cancelAction)
+            self.presentViewController(errorMenu, animated: true, completion: nil)
+        }
+    }
+    
 }
