@@ -175,6 +175,34 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func TextFieldDoneEditing(sender: UITextField){
         //sends the keyboard away when the user is done editing/
         sender.resignFirstResponder()
+        
+        //error handling for the price
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        
+        if let price = numberFormatter.numberFromString(TextFieldText[1].text! as String){
+            
+            if (price.compare(NSNumber(double : 0.00)) == .OrderedAscending) {
+                let errorMenu = UIAlertController(title: nil, message: "Please enter a price greater than $0.00", preferredStyle: .ActionSheet)
+                //present the Action sheet controller to the user
+                //Cancel the action and do nothing
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in})
+                errorMenu.addAction(cancelAction)
+                self.presentViewController(errorMenu, animated: true, completion: nil)
+            }
+            
+        }else{
+            
+            let errorMenu = UIAlertController(title: nil, message: "Your entry contains invalid characters", preferredStyle: .ActionSheet)
+            //present the Action sheet controller to the user
+            //Cancel the action and do nothing
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                (alert: UIAlertAction!) -> Void in})
+            errorMenu.addAction(cancelAction)
+            self.presentViewController(errorMenu, animated: true, completion: nil)
+        }
+        sender.resignFirstResponder()
     }
     @IBAction func BackgroundTap(sender: UIControl){
         //stops all keyboards for any text field.
