@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate {
+class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate, UIActionSheetDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    
+    @IBOutlet weak var CategoryLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
      @IBOutlet var TextFieldText: [UITextField] = []
     @IBOutlet weak var TextView: UITextView!
@@ -175,6 +175,34 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func TextFieldDoneEditing(sender: UITextField){
         //sends the keyboard away when the user is done editing/
         sender.resignFirstResponder()
+        
+        //error handling for the price
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        
+        if let price = numberFormatter.numberFromString(TextFieldText[1].text! as String){
+            
+            if (price.compare(NSNumber(double : 0.00)) == .OrderedAscending) {
+                let errorMenu = UIAlertController(title: nil, message: "Please enter a price greater than $0.00", preferredStyle: .ActionSheet)
+                //present the Action sheet controller to the user
+                //Cancel the action and do nothing
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                    (alert: UIAlertAction!) -> Void in})
+                errorMenu.addAction(cancelAction)
+                self.presentViewController(errorMenu, animated: true, completion: nil)
+            }
+            
+        }else{
+            
+            let errorMenu = UIAlertController(title: nil, message: "Your entry contains invalid characters", preferredStyle: .ActionSheet)
+            //present the Action sheet controller to the user
+            //Cancel the action and do nothing
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                (alert: UIAlertAction!) -> Void in})
+            errorMenu.addAction(cancelAction)
+            self.presentViewController(errorMenu, animated: true, completion: nil)
+        }
+        sender.resignFirstResponder()
     }
     @IBAction func BackgroundTap(sender: UIControl){
         //stops all keyboards for any text field.
@@ -186,6 +214,59 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+
+    
+    //add category function to allow the user to add a category to the ad
+    @IBAction func AddCategory(sender: AnyObject) {
+        //define the option menu
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        // Declare what the user can select as a category
+        let AddBookCategory = UIAlertAction(title: "Book", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Book"})
+        let AddMovieCategory = UIAlertAction(title: "Movie", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Movie"})
+        let AddMusicCategory = UIAlertAction(title: "Music", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Music"})
+        let AddGameCategory = UIAlertAction(title: "Game", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in self.CategoryLabel.text = "Game"})
+        
+        //Cancel the action and do nothing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in})
+        
+        
+        // Add the options to the Action Sheet
+        optionMenu.addAction(AddBookCategory)
+        optionMenu.addAction(AddMovieCategory)
+        optionMenu.addAction(AddMusicCategory)
+        optionMenu.addAction(AddGameCategory)
+        optionMenu.addAction(cancelAction)
+        
+        //present the Action sheet controller to the user
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    @IBAction func ValidatePost(sender: AnyObject) {
+        let errorMenu = UIAlertController(title: nil, message: "Invalid Advertisement", preferredStyle: .ActionSheet)
+        if(TextFieldText[0].text!.isEmpty == true){
+            let cancelAction = UIAlertAction(title: "Your advertisement does not have a title", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in})
+                errorMenu.addAction(cancelAction)
+                self.presentViewController(errorMenu, animated: true, completion: nil)
+        }else if (TextFieldText[1].text!.isEmpty == true){
+            let cancelAction = UIAlertAction(title: "Your advertisement is missing a description", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in})
+            errorMenu.addAction(cancelAction)
+            self.presentViewController(errorMenu, animated: true, completion: nil)
+        }else if (TextFieldText[2].text!.isEmpty == true){
+            let cancelAction = UIAlertAction(title: "Your product needs to have a category", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in})
+            errorMenu.addAction(cancelAction)
+            self.presentViewController(errorMenu, animated: true, completion: nil)
+        }
     }
     
 }
