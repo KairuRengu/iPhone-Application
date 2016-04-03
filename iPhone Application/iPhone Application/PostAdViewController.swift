@@ -116,35 +116,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     @IBAction func TextFieldDoneEditing(sender: UITextField){
         //sends the keyboard away when the user is done editing/
-        sender.resignFirstResponder()
-        
-        //error handling for the price
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        
-        if let price = numberFormatter.numberFromString(TextFieldText[1].text! as String){
-            
-            if (price.compare(NSNumber(double : 0.00)) == .OrderedAscending) {
-                let errorMenu = UIAlertController(title: nil, message: "Please enter a price greater than $0.00", preferredStyle: .ActionSheet)
-                //present the Action sheet controller to the user
-                //Cancel the action and do nothing
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-                    (alert: UIAlertAction!) -> Void in})
-                errorMenu.addAction(cancelAction)
-                self.presentViewController(errorMenu, animated: true, completion: nil)
-            }
-            
-        }else{
-            
-            let errorMenu = UIAlertController(title: nil, message: "Your entry contains invalid characters", preferredStyle: .ActionSheet)
-            //present the Action sheet controller to the user
-            //Cancel the action and do nothing
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-                (alert: UIAlertAction!) -> Void in})
-            errorMenu.addAction(cancelAction)
-            self.presentViewController(errorMenu, animated: true, completion: nil)
-        }
-        sender.resignFirstResponder()
+        sender.resignFirstResponder()                
     }
     @IBAction func BackgroundTap(sender: UIControl){
         //stops all keyboards for any text field.
@@ -205,17 +177,23 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
+    func displayError(errorMenu : UIAlertController, s : String) {
+        let cancelAction = UIAlertAction(title: s, style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in})
+        errorMenu.addAction(cancelAction)
+        self.presentViewController(errorMenu, animated: true, completion: nil)
+    }
+    
     @IBAction func ValidatePost(sender: AnyObject) {
-
-        
-        
         let errorMenu = UIAlertController(title: nil, message: "Invalid Advertisement", preferredStyle: .ActionSheet)
-        if(TextFieldText[0].text!.isEmpty == true){
+        let somePrice = Float(textPrice.text!)
+        
+        if(textTitle.text?.isEmpty == true){
             let cancelAction = UIAlertAction(title: "Your advertisement does not have a title!", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in})
                 errorMenu.addAction(cancelAction)
                 self.presentViewController(errorMenu, animated: true, completion: nil)
-        }else if (TextFieldText[1].text!.isEmpty == true){
+        }else if (textDescription.text.isEmpty == true){
             let cancelAction = UIAlertAction(title: "Your advertisement is missing a description!", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in})
             errorMenu.addAction(cancelAction)
@@ -225,7 +203,16 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 (alert: UIAlertAction!) -> Void in})
             errorMenu.addAction(cancelAction)
             self.presentViewController(errorMenu, animated: true, completion: nil)
-        } else {
+        } else if(self.textTitle!.text?.characters.count > 80) {
+            displayError(errorMenu, s: "Title can only be 80 characters at most.");
+        }
+        else if(somePrice == nil) {
+            displayError(errorMenu, s: "You must provide a valid price")
+        }
+        else if(somePrice! <= 0) {
+            displayError(errorMenu, s: "You must provide a positive price.")
+        }
+        else {
             // OK, we're good. Try and post it :D
             SwiftSpinner.show("Posting ad...")
             let numberFormatter = NSNumberFormatter()
