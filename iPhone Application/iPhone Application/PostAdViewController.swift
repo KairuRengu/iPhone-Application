@@ -40,6 +40,11 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if((postingProduct) != nil) {
                 fetchPricingAndPopulate()
         }
+        
+        // Set the borders
+        textDescription.layer.borderWidth = 0.5
+        textDescription.layer.cornerRadius = 5.0
+        textDescription.layer.borderColor = UIColor.lightGrayColor().CGColor
     }
     
 
