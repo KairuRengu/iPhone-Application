@@ -206,6 +206,9 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func ValidatePost(sender: AnyObject) {
+
+        
+        
         let errorMenu = UIAlertController(title: nil, message: "Invalid Advertisement", preferredStyle: .ActionSheet)
         if(TextFieldText[0].text!.isEmpty == true){
             let cancelAction = UIAlertAction(title: "Your advertisement does not have a title!", style: .Default, handler: {

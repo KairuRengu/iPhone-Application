@@ -11,11 +11,11 @@ import UIKit
 
 class FinishController: UIViewController {
     
-    @IBAction func clickedHome(sender: AnyObject) {
-        // Pop the root and go home
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func homeWasClicked(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)        
     }
     
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

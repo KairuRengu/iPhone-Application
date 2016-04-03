@@ -167,7 +167,7 @@
         <!--Ad Posted-->
         <scene sceneID="Lbn-q0-fdZ">
             <objects>
-                <viewController id="FIN-GM-gL9" customClass="FinishController" sceneMemberID="viewController">
+                <viewController id="FIN-GM-gL9" customClass="FinishController" customModule="SnappyAd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HPD-jv-pad"/>
                         <viewControllerLayoutGuide type="bottom" id="ehz-Cz-VmJ"/>
@@ -205,7 +205,7 @@
                     <navigationItem key="navigationItem" title="Ad Posted" id="cqg-3r-aAj">
                         <barButtonItem key="leftBarButtonItem" title="Home" id="Enx-26-z1w">
                             <connections>
-                                <action selector="clickedHome:" destination="FIN-GM-gL9" id="MnL-be-vcS"/>
+                                <action selector="homeWasClicked:" destination="FIN-GM-gL9" id="6fR-6U-gaP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
