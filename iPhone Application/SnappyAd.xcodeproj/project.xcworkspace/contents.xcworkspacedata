@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:iPhone Application.xcodeproj">
+      location = "self:/Users/vaughan/Git/iPhone-Application/iPhone Application/SnappyAd.xcodeproj">
    </FileRef>
 </Workspace>

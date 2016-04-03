@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		272DECAB1C97BED2006D2BF5 /* UIImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImagePicker.swift; sourceTree = "<group>"; };
-		27A2F8321C97B15A00D82FAF /* iPhone Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iPhone Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A2F8321C97B15A00D82FAF /* SnappyAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnappyAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A2F8351C97B15A00D82FAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27A2F8371C97B15B00D82FAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27A2F83A1C97B15B00D82FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		27A2F8331C97B15A00D82FAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27A2F8321C97B15A00D82FAF /* iPhone Application.app */,
+				27A2F8321C97B15A00D82FAF /* SnappyAd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27A2F8311C97B15A00D82FAF /* iPhone Application */ = {
+		27A2F8311C97B15A00D82FAF /* SnappyAd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27A2F8441C97B15B00D82FAF /* Build configuration list for PBXNativeTarget "iPhone Application" */;
+			buildConfigurationList = 27A2F8441C97B15B00D82FAF /* Build configuration list for PBXNativeTarget "SnappyAd" */;
 			buildPhases = (
 				27A2F82E1C97B15A00D82FAF /* Sources */,
 				27A2F82F1C97B15A00D82FAF /* Frameworks */,
@@ -164,9 +164,9 @@
 			);
 			dependencies = (
 			);
-			name = "iPhone Application";
+			name = SnappyAd;
 			productName = "iPhone Application";
-			productReference = 27A2F8321C97B15A00D82FAF /* iPhone Application.app */;
+			productReference = 27A2F8321C97B15A00D82FAF /* SnappyAd.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +184,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 27A2F82D1C97B15A00D82FAF /* Build configuration list for PBXProject "iPhone Application" */;
+			buildConfigurationList = 27A2F82D1C97B15A00D82FAF /* Build configuration list for PBXProject "SnappyAd" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -197,7 +197,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27A2F8311C97B15A00D82FAF /* iPhone Application */,
+				27A2F8311C97B15A00D82FAF /* SnappyAd */,
 			);
 		};
 /* End PBXProject section */
@@ -345,7 +345,7 @@
 				INFOPLIST_FILE = "iPhone Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.wlu.iPhone-Application";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SnappyAd;
 			};
 			name = Debug;
 		};
@@ -357,14 +357,14 @@
 				INFOPLIST_FILE = "iPhone Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.wlu.iPhone-Application";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SnappyAd;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27A2F82D1C97B15A00D82FAF /* Build configuration list for PBXProject "iPhone Application" */ = {
+		27A2F82D1C97B15A00D82FAF /* Build configuration list for PBXProject "SnappyAd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27A2F8421C97B15B00D82FAF /* Debug */,
@@ -373,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27A2F8441C97B15B00D82FAF /* Build configuration list for PBXNativeTarget "iPhone Application" */ = {
+		27A2F8441C97B15B00D82FAF /* Build configuration list for PBXNativeTarget "SnappyAd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27A2F8451C97B15B00D82FAF /* Debug */,
