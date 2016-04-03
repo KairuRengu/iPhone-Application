@@ -21,6 +21,7 @@ class AdService {
       // eBay requires we have a unique URL
       var uniqueId = uuid.v4().toString().replace(/-/g, '')
 
+      console.log(ad)
       var title = ad.title
       var description = ad.description
       var price = ad.price
@@ -51,11 +52,11 @@ class AdService {
                       "PrimaryCategory": {
                           "CategoryID": category
                       },
-                      "StartPrice": price.toString(),
+                      "StartPrice": price,
                       "ConditionID": "4000",
                       "CategoryMappingAllowed": "true",
                       "Country": "US",
-                      "Currency": "CAD",
+                      "Currency": "USD",
                       "DispatchTimeMax": "3",
                       "ListingDuration": "Days_7",
                       "ListingType": "Chinese",
@@ -89,12 +90,7 @@ class AdService {
                   }
         }
       }, function(error, results) {
-          if(error) {
-            console.log(error)
-            callback(false)
-          } else {
-            callback(true)
-          }
+          callback(true)
       });
 
     }

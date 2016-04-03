@@ -51,7 +51,7 @@ class ProductSearchService {
      Fetches the product price, based on the product itself.
      */
     func postAdvertisement(ad : AdPost, completeCallback : (Bool) -> Void) {
-        let serviceUrl = ServiceConfiguration.getApiEndPoint() + "advertisement"
+        let serviceUrl = ServiceConfiguration.getApiEndPoint() + "ad/post"
         let mapper = EbayProductTypeToCategoryMapper()
         
         let params = [
@@ -67,7 +67,8 @@ class ProductSearchService {
         HTTPUtility.POSTWithImageParameters(ad.getImages()[0], params: params, url: serviceUrl) {
             json in
             if(json != nil) {
-                completeCallback(true)
+                let status = json!["status"] as! Bool
+                completeCallback(status)
             }
             else {
                 completeCallback(false)

@@ -10,7 +10,7 @@
         <!--Post Ad-->
         <scene sceneID="maU-t9-Lvi">
             <objects>
-                <viewController id="JwZ-fg-fKS" customClass="PostAdViewController" customModule="iPhone_Application" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JwZ-fg-fKS" customClass="PostAdViewController" customModule="SnappyAd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VKj-wr-wFK"/>
                         <viewControllerLayoutGuide type="bottom" id="0LX-J7-q2D"/>
@@ -72,7 +72,7 @@
                                                     </textView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l5J-Lf-Dkq">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l5J-Lf-Dkq">
                                                 <rect key="frame" x="0.0" y="353" width="560" height="61"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fu0-bl-lzn">
@@ -157,119 +157,67 @@
                         <outlet property="textTitle" destination="Yjn-L1-aBg" id="yo8-Fm-NXn"/>
                         <outletCollection property="TextFieldText" destination="Yjn-L1-aBg" collectionClass="NSMutableArray" id="MAM-OD-kzf"/>
                         <outletCollection property="TextFieldText" destination="klp-Sg-Kn7" collectionClass="NSMutableArray" id="av6-mA-29Y"/>
-                        <segue destination="j9Y-TL-q4H" kind="show" id="6VD-lw-7kc"/>
+                        <segue destination="FIN-GM-gL9" kind="show" identifier="finish" id="PAQ-mz-Srg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPe-ws-g30" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2147" y="606"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="pWz-8Q-nkV">
+        <!--Ad Posted-->
+        <scene sceneID="Lbn-q0-fdZ">
             <objects>
-                <viewController id="j9Y-TL-q4H" sceneMemberID="viewController">
+                <viewController id="FIN-GM-gL9" customClass="FinishController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bZs-lO-PkT"/>
-                        <viewControllerLayoutGuide type="bottom" id="NTh-CS-Kwf"/>
+                        <viewControllerLayoutGuide type="top" id="HPD-jv-pad"/>
+                        <viewControllerLayoutGuide type="bottom" id="ehz-Cz-VmJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kyC-qQ-RUG">
+                    <view key="view" contentMode="scaleToFill" id="c6S-Zg-YGS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Posted!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbr-M5-Gw4">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.30454582489999998" green="0.4143401874" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy_user" translatesAutoresizingMaskIntoConstraints="NO" id="NWc-hy-HlY">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoR-jp-flo">
+                                <rect key="frame" x="175" y="91" width="250" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="311" id="5Bm-KT-dzY"/>
-                                    <constraint firstAttribute="height" constant="268" id="Cwi-GP-8hm"/>
+                                    <constraint firstAttribute="width" constant="250" id="YDD-TN-zVM"/>
+                                    <constraint firstAttribute="height" constant="30" id="xN4-67-Yjg"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5Bm-KT-dzY"/>
-                                        <exclude reference="Cwi-GP-8hm"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="5Bm-KT-dzY"/>
-                                        <include reference="Cwi-GP-8hm"/>
-                                    </mask>
-                                </variation>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy_user" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-yQ-5Zd">
+                                <rect key="frame" x="180" y="161" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="ENL-Am-rWL"/>
+                                    <constraint firstAttribute="height" constant="128" id="PHR-oa-RMS"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugs-K3-rSR">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Post Another"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cH-pI-6vn">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="View Ad"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1cH-pI-6vn" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="9jF-RR-ayY"/>
-                            <constraint firstItem="NWc-hy-HlY" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="DuO-Is-J4s"/>
-                            <constraint firstItem="1cH-pI-6vn" firstAttribute="top" secondItem="NWc-hy-HlY" secondAttribute="bottom" constant="37" id="dMX-Rs-48D"/>
-                            <constraint firstItem="wbr-M5-Gw4" firstAttribute="top" secondItem="bZs-lO-PkT" secondAttribute="bottom" constant="56" id="eWl-ey-S0j"/>
-                            <constraint firstItem="NWc-hy-HlY" firstAttribute="top" secondItem="wbr-M5-Gw4" secondAttribute="bottom" constant="69.5" id="iWa-sI-gR4"/>
-                            <constraint firstItem="Ugs-K3-rSR" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="mii-BH-eDe"/>
-                            <constraint firstItem="wbr-M5-Gw4" firstAttribute="centerX" secondItem="kyC-qQ-RUG" secondAttribute="centerX" id="tXE-eU-fJh"/>
-                            <constraint firstItem="NTh-CS-Kwf" firstAttribute="top" secondItem="Ugs-K3-rSR" secondAttribute="bottom" constant="8" id="uxn-PZ-Kru"/>
+                            <constraint firstItem="ghk-yQ-5Zd" firstAttribute="centerX" secondItem="c6S-Zg-YGS" secondAttribute="centerX" id="O4D-Tr-Ifu"/>
+                            <constraint firstItem="KoR-jp-flo" firstAttribute="top" secondItem="HPD-jv-pad" secondAttribute="bottom" constant="27" id="dsp-MQ-k4y"/>
+                            <constraint firstItem="KoR-jp-flo" firstAttribute="centerX" secondItem="c6S-Zg-YGS" secondAttribute="centerX" id="nfX-1c-cmi"/>
+                            <constraint firstItem="ghk-yQ-5Zd" firstAttribute="top" secondItem="KoR-jp-flo" secondAttribute="bottom" constant="40" id="wds-w8-MFt"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="wbr-M5-Gw4"/>
-                                <exclude reference="NWc-hy-HlY"/>
-                                <exclude reference="Ugs-K3-rSR"/>
-                                <exclude reference="1cH-pI-6vn"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="uxn-PZ-Kru"/>
-                                <exclude reference="9jF-RR-ayY"/>
-                                <exclude reference="dMX-Rs-48D"/>
-                                <exclude reference="mii-BH-eDe"/>
-                                <exclude reference="eWl-ey-S0j"/>
-                                <exclude reference="tXE-eU-fJh"/>
-                                <exclude reference="DuO-Is-J4s"/>
-                                <exclude reference="iWa-sI-gR4"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="wbr-M5-Gw4"/>
-                                <include reference="NWc-hy-HlY"/>
-                                <include reference="Ugs-K3-rSR"/>
-                                <include reference="1cH-pI-6vn"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="uxn-PZ-Kru"/>
-                                <include reference="9jF-RR-ayY"/>
-                                <include reference="dMX-Rs-48D"/>
-                                <include reference="mii-BH-eDe"/>
-                                <include reference="eWl-ey-S0j"/>
-                                <include reference="tXE-eU-fJh"/>
-                                <include reference="DuO-Is-J4s"/>
-                                <include reference="iWa-sI-gR4"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Ad Posted" id="cqg-3r-aAj">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="Enx-26-z1w">
+                            <connections>
+                                <action selector="clickedHome:" destination="FIN-GM-gL9" id="MnL-be-vcS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c3I-cT-YMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXT-yJ-0G5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2863" y="587"/>
+            <point key="canvasLocation" x="3019" y="606"/>
         </scene>
         <!--Take a Photo-->
         <scene sceneID="dpS-UY-wXr">
             <objects>
-                <viewController title="Take a Photo" id="tmY-IE-DcL" customClass="UIImagePicker" customModule="iPhone_Application" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Take a Photo" id="tmY-IE-DcL" customClass="UIImagePicker" customModule="SnappyAd" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JQX-mQ-hPX"/>
                         <viewControllerLayoutGuide type="bottom" id="aqC-3e-2X7"/>

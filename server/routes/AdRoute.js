@@ -17,33 +17,30 @@ class AdRoute {
   }
 
   _onPOSTAd(request, resource, next) {
-    // var imageUploaded, imagePath
-    // try {
-    //    imageUploaded = request.files.image
-    //    imagePath = imageUploaded.path
-    // } catch(e) {
-    //   console.log('/search: image was not attached, so aborting the request')
-    //   resource.status(400)
-    //   resource.send({error: 'No image was attached'})
-    //   return
-    // }
-
-    // TODO: Do something about this
-    var imagePath = "/tmp/upload_ff18116c620b1d359e130b55e21dffdf"
+    var imageUploaded, imagePath
+    try {
+       imageUploaded = request.files.image
+       imagePath = imageUploaded.path
+    } catch(e) {
+      console.log('/search: image was not attached, so aborting the request')
+      resource.status(400)
+      resource.send({status: false})
+      return
+    }
 
     // Get the advertisement body
-    var adBody = request.body
+    var adBody = request.params
 
     // Upload the image
     var uploader = new ImageUploader('')
     uploader.uploadImageFromDisk(imagePath, (imgurUrl) => {
         adBody.image = imgurUrl
+        console.log(request.body)
         this.service.ebay(adBody, (valid) => {
           if(valid) {
-            resource.send({status: "OK. Ad posted!"})
-          } else {
-            resource.status(400)
-            resource.send()
+            resource.send({status: true})
+          } else {            
+            resource.send({status: false})
           }
         })
     })
