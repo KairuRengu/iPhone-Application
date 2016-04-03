@@ -17,7 +17,7 @@ class ServiceConfiguration {
      Returns the API endpoint for the server, wherever it may be.
     */
     static func getApiEndPoint() -> String {
-        return "http://localhost:2740/";
+        return "http://159.203.11.151:2740/";
     }
     
 }
