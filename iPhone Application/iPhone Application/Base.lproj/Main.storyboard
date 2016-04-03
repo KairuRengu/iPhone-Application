@@ -233,13 +233,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
                                         <subviews>
                                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="QO9-mn-4zs">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="235" id="1Ou-26-rGM"/>
+                                                    <constraint firstAttribute="height" constant="150" id="1Ou-26-rGM"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-Oc-6TA">
-                                                <rect key="frame" x="0.0" y="235" width="600" height="20"/>
+                                                <rect key="frame" x="0.0" y="225" width="600" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="IDd-rA-tUN"/>
+                                                </constraints>
                                                 <state key="normal" title="Photo Album"/>
                                                 <connections>
                                                     <action selector="btnClicked" destination="tmY-IE-DcL" eventType="touchUpInside" id="TIe-0e-hFQ"/>
@@ -250,11 +253,14 @@
                                             <rect key="frame" x="251" y="373" width="99" height="21"/>
                                         </variation>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qti-E7-2uE">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Qti-E7-2uE">
                                         <rect key="frame" x="0.0" y="255" width="600" height="255"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cam" translatesAutoresizingMaskIntoConstraints="NO" id="hcv-vp-dHj">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="bpH-uB-dec"/>
+                                                </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5T-gW-F5v" userLabel="Camera">
                                                 <rect key="frame" x="0.0" y="225" width="600" height="30"/>
