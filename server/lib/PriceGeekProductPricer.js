@@ -19,6 +19,7 @@ class PriceGeekProductPricer extends ProductPricer {
         // HACK
         // This is an HTML over-ride which allows for injecting a custom
         // HTML document for unit testing. Do not use in production.
+        // Should probably just use some kind of mock like Sinon :)
         this.html = html
       }
 
