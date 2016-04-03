@@ -65,6 +65,55 @@ class HTTPUtility {
         task.resume()
     }
     
+    static func POSTWithImageParameters(adImage : UIImage, params : [String : String], url : String, completeCallback : (NSDictionary?) -> Void)
+    {
+        // TODO: Implement the network activity indiciator
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let myUrl = NSURL(string: url);
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
+
+        let param = params
+        
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let imageData = UIImageJPEGRepresentation(adImage, 1)
+        if(imageData==nil)  { return; }
+        request.HTTPBody = createBodyWithParameters(param, filePathKey: "image", imageDataKey: imageData!, boundary: boundary)
+        
+        
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            // Turn off the indiciator
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            if((error) != nil) {
+                completeCallback(nil)
+                return
+            }
+            
+            // Attempt to print the back data here
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("Response is back, result is: " + (responseString as! String))
+            
+            do {
+                let json : NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! NSDictionary
+                dispatch_async(dispatch_get_main_queue(), {
+                    completeCallback(json)
+                });
+            }
+            catch {
+                completeCallback(nil)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
     /**
      Makes a POST request returning a NSDictionary, which represents the values from the JSON.
     */

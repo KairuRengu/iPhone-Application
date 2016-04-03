@@ -57,14 +57,14 @@ class ProductSearchService {
         let params = [
             "title": ad.getTitle(),
             "description": ad.getDescription(),
-            "categoryId": mapper.getCategoryIdForProductType(ad.getCategory()),
+            "category": mapper.getCategoryIdForProductType(ad.getCategory()),
             "price": ad.getPrice().description
         ]
         
         // TODO: Likely need to return a result when the server supports it for
         // getting your ad URLs back
         
-        HTTPUtility.POSTWithImage(ad.getImages(), params: params, url: serviceUrl) {
+        HTTPUtility.POSTWithImageParameters(ad.getImages()[0], params: params, url: serviceUrl) {
             json in
             if(json != nil) {
                 completeCallback(true)
